@@ -1,0 +1,23 @@
+.dashboardMain{
+    // width: calc(100vw - 250px );
+    display:flex;
+   flex-wrap: wrap;
+   row-gap: 20px;
+   align-items: center ;
+   justify-content: center;
+   column-gap: 10px;
+    padding: 50px;
+    .frame-position{
+        position: relative;
+    }
+    h3{
+        font-weight: 400;
+    }
+}
+.content-width{
+    width: 347px;
+    position: absolute;
+    top: 50px;
+    // left: 20px;
+    text-align: center;
+}

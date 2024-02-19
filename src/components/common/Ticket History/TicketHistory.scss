@@ -1,0 +1,40 @@
+.esclate-main {
+  width: 100%;
+  .escalte-btn {
+    // text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    column-gap: 50px;
+    align-items: center;
+    margin: 50px 0;
+    h2 {
+      color: #0166bf;
+    }
+    button {
+    }
+  }
+}
+.escate-history {
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  padding: 4rem;
+}
+.escalate-btn {
+  margin-top: 3rem;
+  height: 40px;
+  padding: 7px;
+  width: 300px;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  background: rgb(0, 155, 231);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 155, 231, 1) 0%,
+    rgba(3, 103, 182, 1) 51%,
+    rgba(0, 155, 231, 1) 96%
+  );
+}
