@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import DataTable from "../Tables/DataTable";
 import { useState, useEffect } from "react";
 import API from "../../../utils/Api/api";
