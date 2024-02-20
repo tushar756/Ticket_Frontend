@@ -2,10 +2,10 @@ import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 // import Navbar from "../components/common/navbar/navbar";
 import { Suspense } from "react";
-
+import Dashboard from "../components/pages/Manager/Dashboard";
 // import { LazyBoard } from "./lazyRoutes";
 // import MainBoard from "../components/common/MainBoard/MainBoard";
-import ManagerDashbBoard from "../components/pages/Manager/ManagerDashBoard";
+// import ManagerDashbBoard from "../components/pages/Manager/ManagerDashBoard";
 import {
   LazyCreateStaff,
   LazyDeleteStaff,
@@ -31,7 +31,7 @@ const Routing = () => {
           <Route path="/" element={<LazySignInPage />} />
           {/* <ProtectedRoutes> */}
           <Route path="manager/" element={<LazyMainBoard />}>
-            <Route path="dashboard" element={<ManagerDashbBoard />} />
+            <Route path="dashboard" element={<Dashboard/>} />
             <Route path="report" element={<LazyReportDisplayed />} />
             <Route path="ticket" element={<LazyTickets />} />
             <Route path="ticketHistory/:id" element={<LazyTicketHistory />} />
