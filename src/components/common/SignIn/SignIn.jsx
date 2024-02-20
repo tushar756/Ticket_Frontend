@@ -1,4 +1,4 @@
-import React from "react";
+ 
 import "./SignIn.scss";
 import CompanyLogo from "../../../assets/Company Logo/Trace logo (icon).png";
 import frame1 from "../../../assets/SignIn/login-bg-1.56c9631ae3f94566edf1.png";
@@ -67,8 +67,8 @@ const SignIn = () => {
           <h1>Harmony Discout Phamacy</h1>
         </div>
         <h1 className="left-heading">
-          "Elevate productivity with our seamless employee task assignment
-          solution."
+          Elevate productivity with our seamless employee task assignment
+          solution.
         </h1>
         <img src={frame1} className="bg-1" alt="" />
         <img src={frame2} className="bg-2" alt="" />

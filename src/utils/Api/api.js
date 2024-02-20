@@ -39,7 +39,8 @@
 import axios from 'axios';
 import { requestHandler, successHandler, errorHandler } from './interceptor';
 
-const baseURL = "http://localhost:8080/api/";
+// const baseURL = "http://localhost:8080/api/";
+const baseURL = "https://backend-code-two.vercel.app/";
 
 const token = localStorage.getItem('token');
 
