@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import   { useState } from "react";
 // import CompanyLogo from '../../../assets/Company Logo/Logo__-_Profile_Image.png'
 import CompanyLogo from "../../../assets/Company Logo/Trace logo (icon).png";
 import ProfileImgMaker from "../../../utils";
-import { FaBell } from "react-icons/fa";
+// import { FaBell } from "react-icons/fa";
 import {  useNavigate } from "react-router-dom";
 // import {useHistory} from 'react-router-dom'
 import "./navbar.scss";
