@@ -7,7 +7,7 @@ import frame4 from "../../../assets/frames/Frame 4.png";
 import frame5 from "../../../assets/frames/Frame 5.png";
 import "./ManagerDashboard.scss";
 
-const ManagerDashboard = () => {
+const ManagerDashBoard = () => {
   const [count, setCount] = useState({
     Pending: 0,
     Resolved: 0,
@@ -75,4 +75,4 @@ const ManagerDashboard = () => {
 };
 
 
-export default ManagerDashboard;
+export default ManagerDashBoard;
