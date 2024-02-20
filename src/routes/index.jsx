@@ -6,7 +6,7 @@ import { Suspense } from "react";
 
 // import { LazyBoard } from "./lazyRoutes";
 import MainBoard from "../components/common/MainBoard/MainBoard";
-import ManagerDashboard from "../components/pages/Manager/ManagerDashBoard";
+// import ManagerDashboard from "../components/pages/Manager/ManagerDashBoard";
 import { LazyCreateStaff, LazyDeleteStaff, LazyRaiseTicket, LazyReportDisplayed, LazyReports, LazyStaffTickets, LazyTicketHistory, LazyTickets, LazyUpdateStaff } from "./lazyRoutes";
 import { LazySignInPage } from "./lazyRoutes";
 import EscalateTicket from "../components/common/EscalateTicket/EscalateTicket";
@@ -21,7 +21,7 @@ const Routing = () => {
           <Route path="/" element={<LazySignInPage   />} />
             {/* <ProtectedRoutes> */}
           <Route path="manager/" element={<MainBoard />}>
-            <Route path="dashboard" element={<ManagerDashboard />} />
+            {/* <Route path="dashboard" element={<ManagerDashboard />} /> */}
             <Route path="report" element={<LazyReportDisplayed />} />
             <Route path="ticket" element={<LazyTickets />} />
             <Route path="ticketHistory/:id" element={<LazyTicketHistory />} />
