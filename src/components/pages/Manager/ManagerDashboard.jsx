@@ -1,77 +1,77 @@
-// import { useState, useEffect } from 'react';
-// import API from "../../../utils/Api/api";
-// import frame1 from "../../../assets/frames/Frame 1.png";
-// import frame2 from "../../../assets/frames/Frame 2.png";
-// import frame3 from "../../../assets/frames/Frame 3.png";
-// import frame4 from "../../../assets/frames/Frame 4.png";
-// import frame5 from "../../../assets/frames/Frame 5.png";
+import { useState, useEffect } from 'react';
+import API from "../../../utils/Api/api";
+import frame1 from "../../../assets/frames/Frame 1.png";
+import frame2 from "../../../assets/frames/Frame 2.png";
+import frame3 from "../../../assets/frames/Frame 3.png";
+import frame4 from "../../../assets/frames/Frame 4.png";
+import frame5 from "../../../assets/frames/Frame 5.png";
 import "./ManagerDashboard.scss";
 
 const ManagerDashBoard = () => {
-  // const [count, setCount] = useState({
-  //   Pending: 0,
-  //   Resolved: 0,
-  //   Open: 0,
-  //   pendingMoreThanTwoDaysCount: 0,
-  //   staffCount: 0
-  // });
-  // const user = JSON.parse(localStorage.getItem("user"));
+  const [count, setCount] = useState({
+    Pending: 0,
+    Resolved: 0,
+    Open: 0,
+    pendingMoreThanTwoDaysCount: 0,
+    staffCount: 0
+  });
+  const user = JSON.parse(localStorage.getItem("user"));
 
-  // const getAllTickets = async () => {
-  //   try {
-  //     const response = await API.get("/ticket/statusCount", {
-  //       user: user._id,
-  //     });
+  const getAllTickets = async () => {
+    try {
+      const response = await API.get("/ticket/statusCount", {
+        user: user._id,
+      });
      
-  //     setCount(response.data.data);
-  //   } catch (error) {
-  //     console.error("Error fetching data:", error);
-  //   }
-  // };
+      setCount(response.data.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
-  // useEffect(() => {
-  //   getAllTickets();
-  // }, []);
-return null
-  // return (
-    // <div className="dashboardMain">
-    //   <div className="frame-position">
-    //     <img src={frame1} alt="" />
-    //     <div className="content-width">
-    //       <h2>Total Tickets</h2>
-    //       <h1>{(count.pendingCount || 0) + (count.resolvedCount || 0) + (count.openCount || 0)}</h1>
-    //     </div>
-    //   </div>
-    //   <div className="frame-position">
-    //     <img src={frame2} alt="" />
-    //     <div className="content-width">
-    //       <h2>Resolved and Closed Ticket</h2>
-    //       <h1>{count.resolvedCount || 0}</h1>
-    //     </div>
-    //   </div>
-    //   <div className="frame-position">
-    //     <img src={frame3} alt="" />
-    //     <div className="content-width">
-    //       <h2>Open Tickets</h2>
-    //       <h1>{count.openCount || 0}</h1>
-    //     </div>
-    //   </div>
-    //   <div className="frame-position">
-    //     <img src={frame4} alt="" />
-    //     <div className="content-width">
-    //       <h2>Open Since last Two Days</h2>
-    //       <h1>{count.pendingMoreThanTwoDaysCount || 0}</h1> {/* Show 0 if count is undefined */}
-    //     </div>
-    //   </div>
-    //   <div className="frame-position">
-    //     <img src={frame5} alt="" />
-    //     <div className="content-width">
-    //       <h2>Staff Count</h2>
-    //       <h1>{count.staffCount || 0}</h1> {/* Show 0 if count is undefined */}
-    //     </div>
-    //   </div>
-    // </div>
-  // );
+  useEffect(() => {
+    getAllTickets();
+  }, []);
+ 
+  return (
+    <div className="dashboardMain">
+      <div className="frame-position">
+        <img src={frame1} alt="" />
+        <div className="content-width">
+          <h2>Total Tickets</h2>
+          <h1>{(count.pendingCount || 0) + (count.resolvedCount || 0) + (count.openCount || 0)}</h1>
+        </div>
+      </div>
+      <div className="frame-position">
+        <img src={frame2} alt="" />
+        <div className="content-width">
+          <h2>Resolved and Closed Ticket</h2>
+          <h1>{count.resolvedCount || 0}</h1>
+        </div>
+      </div>
+      <div className="frame-position">
+        <img src={frame3} alt="" />
+        <div className="content-width">
+          <h2>Open Tickets</h2>
+          <h1>{count.openCount || 0}</h1>
+        </div>
+      </div>
+      <div className="frame-position">
+        <img src={frame4} alt="" />
+        <div className="content-width">
+          <h2>Open Since last Two Days</h2>
+          <h1>{count.pendingMoreThanTwoDaysCount || 0}</h1> {/* Show 0 if count is undefined */}
+        </div>
+      </div>
+      <div className="frame-position">
+        <img src={frame5} alt="" />
+        <div className="content-width">
+          <h2>Staff Count</h2>
+          <h1>{count.staffCount || 0}</h1> {/* Show 0 if count is undefined */}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 
