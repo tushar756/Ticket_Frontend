@@ -1,4 +1,3 @@
- 
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 // import Navbar from "../components/common/navbar/navbar";
@@ -7,7 +6,18 @@ import { Suspense } from "react";
 // import { LazyBoard } from "./lazyRoutes";
 // import MainBoard from "../components/common/MainBoard/MainBoard";
 import ManagerDashbBoard from "../components/pages/Manager/ManagerDashBoard";
-import { LazyCreateStaff, LazyDeleteStaff, LazyMainBoard, LazyRaiseTicket, LazyReportDisplayed, LazyReports, LazyStaffTickets, LazyTicketHistory, LazyTickets, LazyUpdateStaff } from "./lazyRoutes";
+import {
+  LazyCreateStaff,
+  LazyDeleteStaff,
+  LazyMainBoard,
+  LazyRaiseTicket,
+  LazyReportDisplayed,
+  LazyReports,
+  LazyStaffTickets,
+  LazyTicketHistory,
+  LazyTickets,
+  LazyUpdateStaff,
+} from "./lazyRoutes";
 import { LazySignInPage } from "./lazyRoutes";
 import EscalateTicket from "../components/common/EscalateTicket/EscalateTicket";
 import StaffDashboard from "../components/pages/Staff/Dashboard/StaffDashboard";
@@ -18,26 +28,25 @@ const Routing = () => {
       <BrowserRouter>
         <Routes>
           {/* <Route path="/" element={<LazyLandingPage />} /> */}
-          <Route path="/" element={<LazySignInPage   />} />
-            {/* <ProtectedRoutes> */}
+          <Route path="/" element={<LazySignInPage />} />
+          {/* <ProtectedRoutes> */}
           <Route path="manager/" element={<LazyMainBoard />}>
             <Route path="dashboard" element={<ManagerDashbBoard />} />
-            <Route path="dashboard" element={<LazyTicketHistory />} />
             <Route path="report" element={<LazyReportDisplayed />} />
             <Route path="ticket" element={<LazyTickets />} />
             <Route path="ticketHistory/:id" element={<LazyTicketHistory />} />
-            <Route path="escalateTicket/:id" element={<EscalateTicket/>} />
+            <Route path="escalateTicket/:id" element={<EscalateTicket />} />
             <Route path="raiseticket" element={<LazyRaiseTicket />} />
             <Route path="createStaff" element={<LazyCreateStaff />} />
             <Route path="deleteStaff" element={<LazyDeleteStaff />} />
             <Route path="updateStaff" element={<LazyUpdateStaff />} />
           </Route>
-            {/* </ProtectedRoutes> */}
+          {/* </ProtectedRoutes> */}
           <Route path="staff/" element={<LazyMainBoard />}>
             <Route path="dashboard" element={<StaffDashboard />} />
             <Route path="ticket" element={<LazyStaffTickets />} />
             <Route path="ticketHistory/:id" element={<LazyTicketHistory />} />
-            <Route path="escalateTicket/:id" element={<EscalateTicket/>} />
+            <Route path="escalateTicket/:id" element={<EscalateTicket />} />
             <Route path="raiseticket" element={<LazyRaiseTicket />} />
             <Route path="report" element={<LazyReports />} />
             {/* <Route path="createStaff" element={<LazyCreateStaff />} />
