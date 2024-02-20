@@ -1,5 +1,5 @@
 import   {useEffect}from "react";
-import Navbar from "../navbar/navbar.jsx";
+import Navbar from "../navbar/Navbar";
 import { Outlet, useNavigate } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
 const MainBoard = () => {
