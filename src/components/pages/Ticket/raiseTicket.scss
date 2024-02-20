@@ -1,0 +1,51 @@
+.raiseTicketContainer{
+    width: calc(100vw - 250px );
+    padding:10px;
+    .diff-bg{
+        background-color: #F2F5F8;
+    }
+    .title{
+        text-align: center;
+        margin: 20px 0;
+        font-weight: 900;
+    }
+    input{
+        width: 80%;
+        height: 39px;
+        border-radius: 10px;
+        border: 1px solid #DEE2E6;
+    }
+    label{
+        width: 20%;
+    }
+    .input-feilds{
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        padding: 7px;
+        font-size: 1rem;
+    }
+    input[type="text"] {
+        font-size:1rem;
+        padding: 0 5px;
+    }
+    // textare[type="text"] {
+    //     font-size:1rem;
+    //     padding: 0 5px;
+    // }
+    .btn{
+        display: block;
+        width: 70%;
+        height: 40px;
+        border-radius: 10px;
+        margin: 10px auto;
+    }
+    .btn-clr{
+        color: white;
+        border: none;
+       
+
+background: rgb(0,155,231);
+background: linear-gradient(90deg, rgba(0,155,231,1) 0%, rgba(3,103,182,1) 51%, rgba(0,155,231,1) 96%);
+    }
+}

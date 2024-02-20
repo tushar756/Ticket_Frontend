@@ -1,0 +1,53 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    // padding: 10px;
+    border-bottom: 1px solid #DEE2E6;
+    & > div{
+        display: flex;
+        justify-content: space-around;
+        column-gap: 20px;
+        align-items: center;
+        padding: 10px;
+     
+    }
+    .nameShower{
+        display: flex;
+        flex-direction: column;
+        padding:0 40px 0 40px ;
+    }
+    div h4{
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: bold;
+    }
+    .img-btn:hover{
+        cursor: pointer;
+    }
+    .img-btn{
+        position: relative;
+        .submenu{
+            position: absolute;
+            width: 8rem;
+            background-color: white;
+            left: -80px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.197);
+            border-radius: 5px;
+            li{
+                list-style-type: none;
+                // padding: 10px;
+            }
+            .btn-logout{
+                padding: 5px;
+                border-color: none;
+                border: none;
+                background-color:rgba(1,86,181,1) ;
+                // background-image: linear-gradient(to  right, rgba(1,86,181,1), rgba(0,204,255,1));
+                color: white;
+                font-size: 16px;
+                font-weight: 600;
+            }
+            
+        }
+    }
+}
