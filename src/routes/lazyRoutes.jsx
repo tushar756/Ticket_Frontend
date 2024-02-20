@@ -13,3 +13,4 @@ export const LazyEscalateTicket = lazy(()=>import("../components/common/Escalate
 export const LazyStaffTickets = lazy(()=>import("../components/pages/Staff/Tickets/StaffTickets"))
 export const LazyReports = lazy(()=>import("../components/common/Reports/Report"))
 export const LazyReportDisplayed = lazy(()=>import("../components/common/Reports/ReportDisplay"))
+export const LazyMainBoard = lazy(()=>import("../components/common/MainBoard/MainBoard"))

@@ -5,9 +5,9 @@ import { Routes, Route } from "react-router-dom";
 import { Suspense } from "react";
 
 // import { LazyBoard } from "./lazyRoutes";
-import MainBoard from "../components/common/MainBoard/MainBoard";
+// import MainBoard from "../components/common/MainBoard/MainBoard";
 // import ManagerDashboard from "../components/pages/Manager/ManagerDashBoard";
-import { LazyCreateStaff, LazyDeleteStaff, LazyRaiseTicket, LazyReportDisplayed, LazyReports, LazyStaffTickets, LazyTicketHistory, LazyTickets, LazyUpdateStaff } from "./lazyRoutes";
+import { LazyCreateStaff, LazyDeleteStaff, LazyMainBoard, LazyRaiseTicket, LazyReportDisplayed, LazyReports, LazyStaffTickets, LazyTicketHistory, LazyTickets, LazyUpdateStaff } from "./lazyRoutes";
 import { LazySignInPage } from "./lazyRoutes";
 import EscalateTicket from "../components/common/EscalateTicket/EscalateTicket";
 import StaffDashboard from "../components/pages/Staff/Dashboard/StaffDashboard";
@@ -20,7 +20,7 @@ const Routing = () => {
           {/* <Route path="/" element={<LazyLandingPage />} /> */}
           <Route path="/" element={<LazySignInPage   />} />
             {/* <ProtectedRoutes> */}
-          <Route path="manager/" element={<MainBoard />}>
+          <Route path="manager/" element={<LazyMainBoard />}>
             {/* <Route path="dashboard" element={<ManagerDashboard />} /> */}
             <Route path="report" element={<LazyReportDisplayed />} />
             <Route path="ticket" element={<LazyTickets />} />
@@ -32,7 +32,7 @@ const Routing = () => {
             <Route path="updateStaff" element={<LazyUpdateStaff />} />
           </Route>
             {/* </ProtectedRoutes> */}
-          <Route path="staff/" element={<MainBoard />}>
+          <Route path="staff/" element={<LazyMainBoard />}>
             <Route path="dashboard" element={<StaffDashboard />} />
             <Route path="ticket" element={<LazyStaffTickets />} />
             <Route path="ticketHistory/:id" element={<LazyTicketHistory />} />
