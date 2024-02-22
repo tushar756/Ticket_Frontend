@@ -9,11 +9,12 @@ import "./ManagerDashboard.scss";
 import { NavLink } from "react-router-dom";
 const Dashboard = () => {
   const [count, setCount] = useState({
-    Pending: 0,
-    Resolved: 0,
-    Open: 0,
-    pendingMoreThanTwoDaysCount: 0,
-    staffCount: 0,
+    pendingCount: 0,
+    resolvedCount: 0,
+    openCount: 0,
+    HighPriorityCount: 0,
+    LowPriorityCount: 0,
+    MidPriorityCount: 0,
   });
   const [loading, setLoading] = useState(true);
   const user = JSON.parse(localStorage.getItem("user"));
@@ -46,59 +47,57 @@ const Dashboard = () => {
           <img src={frame1} alt="" />
           <div className="content-width">
             <h2>Open Tickets</h2>
-            <h1>
-              {(count.pendingCount || 0) +
-                (count.resolvedCount || 0) +
-                (count.openCount || 0)}
-            </h1>
+            <h1>{count.openCount || 0}</h1>
           </div>
         </div>
       </NavLink>
-      <NavLink to={"/manager/pendingTickets"} className="menu">          
-      <div className="frame-position">
-        <img src={frame2} alt="" />
-        <div className="content-width">
-          <h2>Pending Tickets</h2>
-          <h1>{count.resolvedCount || 0}</h1>
+      <NavLink to={"/manager/pendingTickets"} className="menu">
+        <div className="frame-position">
+          <img src={frame2} alt="" />
+          <div className="content-width">
+            <h2>Pending Tickets</h2>
+            <h1>{count.pendingCount || 0}</h1>
+          </div>
         </div>
-      </div>
       </NavLink>
-      <NavLink to={"/manager/resolvedTickets"} className="menu">   
-      <div className="frame-position">
-        <img src={frame3} alt="" />
-        <div className="content-width">
-          <h2>Resolved Tickets</h2>
-          <h1>{count.openCount || 0}</h1>
+      <NavLink to={"/manager/resolvedTickets"} className="menu">
+        <div className="frame-position">
+          <img src={frame3} alt="" />
+          <div className="content-width">
+            <h2>Resolved Tickets</h2>
+            <h1>{count.resolvedCount || 0}</h1>
+          </div>
         </div>
-      </div>
       </NavLink>
-      <NavLink to={"/manager/highPriorityTickets"} className="menu">   
-      <div className="frame-position">
-        <img src={frame4} alt="" />
-        <div className="content-width">
-          <h2>High Priority Tickets</h2>
-          <h1>{count.pendingMoreThanTwoDaysCount || 0}</h1>{" "}
-          {/* Show 0 if count is undefined */}
+      <NavLink to={"/manager/highPriorityTickets"} className="menu">
+        <div className="frame-position">
+          <img src={frame4} alt="" />
+          <div className="content-width">
+            <h2>High Priority Tickets</h2>
+            <h1>{count.HighPriorityCount || 0}</h1>{" "}
+            {/* Show 0 if count is undefined */}
+          </div>
         </div>
-      </div>
       </NavLink>
-      <NavLink to={"/manager/midPriorityTickets"} className="menu">   
-      <div className="frame-position">
-        <img src={frame5} alt="" />
-        <div className="content-width">
-          <h2>Mid Priority Tickets</h2>
-          <h1>{count.staffCount || 0}</h1> {/* Show 0 if count is undefined */}
+      <NavLink to={"/manager/midPriorityTickets"} className="menu">
+        <div className="frame-position">
+          <img src={frame5} alt="" />
+          <div className="content-width">
+            <h2>Mid Priority Tickets</h2>
+            <h1>{count.MidPriorityCount || 0}</h1>{" "}
+            {/* Show 0 if count is undefined */}
+          </div>
         </div>
-      </div>
       </NavLink>
-      <NavLink to={"/manager/lowPriorityTickets"} className="menu">  
-      <div className="frame-position">
-        <img src={frame5} alt="" />
-        <div className="content-width">
-          <h2>Low Priority Tickets</h2>
-          <h1>{count.staffCount || 0}</h1> {/* Show 0 if count is undefined */}
+      <NavLink to={"/manager/lowPriorityTickets"} className="menu">
+        <div className="frame-position">
+          <img src={frame5} alt="" />
+          <div className="content-width">
+            <h2>Low Priority Tickets</h2>
+            <h1>{count.LowPriorityCount || 0}</h1>{" "}
+            {/* Show 0 if count is undefined */}
+          </div>
         </div>
-      </div>
       </NavLink>
     </div>
   );
