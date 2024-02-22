@@ -34,7 +34,7 @@ const Tickets = () => {
       textAlign: "start",
     },
     {
-      Header: "Last_Comments",
+      Header: "User",
       accessor: "Last_Comments",
     },
     {

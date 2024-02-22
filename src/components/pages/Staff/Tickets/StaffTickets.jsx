@@ -36,7 +36,7 @@ const StaffTickets = () => {
       textAlign: "start",
     },
     {
-      Header: "Last_Comments",
+      Header: "User",
       accessor: "Last_Comments",
       width: "100%",
     },
