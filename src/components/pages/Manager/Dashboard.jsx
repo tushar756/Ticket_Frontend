@@ -15,23 +15,29 @@ const Dashboard = () => {
     pendingMoreThanTwoDaysCount: 0,
     staffCount: 0
   });
+  const [loading, setLoading] = useState(true);
   const user = JSON.parse(localStorage.getItem("user"));
-
+ 
   const getAllTickets = async () => {
     try {
       const response = await API.get("/ticket/statusCount", {
         user: user._id,
       });
-     
+  
       setCount(response.data.data);
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
-
+ 
   useEffect(() => {
     getAllTickets();
   }, []);
+  if (loading) {
+    // return <h1 style={{minHeight:"70vh",}}>NO TICKET AVAILABLE</h1>
+    return <span className="loader"></span>
+   }
  
   return (
     <div className="dashboardMain">

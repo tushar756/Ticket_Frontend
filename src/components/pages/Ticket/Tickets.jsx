@@ -87,7 +87,8 @@ const Tickets = () => {
 
  
   if (data.length==0) {
-    return <h1 style={{minHeight:"70vh",}}>NO TICKET AVAILABLE</h1>
+    // return <h1 style={{minHeight:"70vh",}}>NO TICKET AVAILABLE</h1>
+    return <span className="loader"></span>
    }
 
   const row = data.map((item, index)=>{return {
@@ -147,7 +148,7 @@ const Tickets = () => {
 
    return (
     data.length == 0 ? (
-      <h1>No data found</h1>
+      <h1>No data Availabel</h1>
     ) : (
       <div style={{ width: "100%", overflowX: "auto" }}>
         <DataTable columns={ogData} data={data} row={row} />
