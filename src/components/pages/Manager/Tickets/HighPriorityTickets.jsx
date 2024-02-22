@@ -76,7 +76,7 @@ const HighPriorityTickets = () => {
   const getAllTickets = async () => {
     try {
       const response = await API.get("/ticket/totalHighPriorityTickets");
-    
+      console.log(response)
       setData(response.data.data);
     } catch (error) {
       console.error("Error fetching data:", error);

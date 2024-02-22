@@ -74,7 +74,7 @@ const LowPriorityTickets = () => {
   };
   const getAllTickets = async () => {
     try {
-      const response = await API.get("/ticket/totalMidPriorityTickets");
+      const response = await API.get("/ticket/totalLowPriorityTickets");
     
       setData(response.data.data);
     } catch (error) {
