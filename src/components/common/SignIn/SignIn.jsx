@@ -1,4 +1,3 @@
- 
 import "./SignIn.scss";
 import CompanyLogo from "../../../assets/Company Logo/Trace logo (icon).png";
 import frame1 from "../../../assets/SignIn/login-bg-1.56c9631ae3f94566edf1.png";
@@ -9,32 +8,37 @@ import { useForm } from "react-hook-form";
 import api from "../../../utils/Api/contact";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-
+import { useState } from "react";
+import { FaEye } from "react-icons/fa";
+import { IoMdEyeOff } from "react-icons/io";
+import { FaEyeSlash } from "react-icons/fa6";
 
 const SignIn = () => {
-  const form = useForm({defaultValues:{
-    email:"",
-    password:""
-  }})
-  const navigate = useNavigate()
+  const form = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+  const [passShow, setPassShow] = useState(false);
+  const navigate = useNavigate();
   const { register, handleSubmit } = form;
-  const formSubmit = async(data) => {
+  const formSubmit = async (data) => {
     try {
-      const response = await api.post("/auth/signin",{
-        ...data
-      })
+      const response = await api.post("/auth/signin", {
+        ...data,
+      });
 
-      if (response.status==200) {
-        if (response.data.data.user.role==="manager") {
+      if (response.status == 200) {
+        if (response.data.data.user.role === "manager") {
           navigate("/manager/dashboard");
-        }
-        else{
+        } else {
           navigate("/staff/dashboard");
-
         }
       }
       toast.success("login Succesfully", {
         position: "top-right",
+        
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -43,9 +47,8 @@ const SignIn = () => {
         progress: undefined,
         theme: "colored",
       });
-      localStorage.setItem("user",JSON.stringify(response.data.data.user))
-      localStorage.setItem("token",response.data.data.token)
-
+      localStorage.setItem("user", JSON.stringify(response.data.data.user));
+      localStorage.setItem("token", response.data.data.token);
     } catch (error) {
       toast.error(error.response.data.message, {
         position: "top-right",
@@ -57,7 +60,7 @@ const SignIn = () => {
         progress: undefined,
         theme: "colored",
       });
-    }  
+    }
   };
   return (
     <div className="singin-container">
@@ -79,27 +82,53 @@ const SignIn = () => {
       <div className="signin-right">
         <div className="container">
           <h3>Sign In</h3>
-          <form action="#"  onSubmit={handleSubmit(formSubmit)}>
+          <form action="#" onSubmit={handleSubmit(formSubmit)}>
             <div className="form-group">
               <label htmlFor="email">Work/Official Email</label>
               <input
                 type="email"
                 id="email"
-                placeholder="Jack@example.com"
+                placeholder="eg. Jack@example.com"
                 className="form-control"
-                {...register('email')}
+                {...register("email")}
               />
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input type="password" id="password" className="form-control"  {...register('password')}/>
+              <div className="two">
+                <input
+                  // type="password"
+                  type={!passShow ? "password" : "text"}
+                  id="password"
+                  placeholder='Type your password'
+                  className="form-control"
+                  {...register("password")}
+                />
+                <div
+                  className="showpass"
+                  onClick={() => setPassShow(!passShow)}
+                > 
+                  {!passShow ?  <FaEyeSlash size={"20px"} color="grey"/>:<FaEye size={"20px"} color="#3996e4"/>}
+                </div>
+              </div>
             </div>
             <div className="form-group space-setting">
               <label htmlFor="manager">MANAGER</label>
-              <input type="radio" value="manager" id="manager" defaultChecked={true}  {...register('role')}/>
+              <input
+                type="radio"
+                value="manager"
+                id="manager"
+                defaultChecked={true}
+                {...register("role")}
+              />
 
               <label htmlFor="staff">Staff</label>
-              <input type="radio" id="staff" value="staff" {...register('role')} />
+              <input
+                type="radio"
+                id="staff"
+                value="staff"
+                {...register("role")}
+              />
             </div>
             <div className="form-group">
               <button className="submit-button">Sign In</button>

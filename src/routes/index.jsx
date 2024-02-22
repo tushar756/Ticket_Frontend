@@ -9,10 +9,16 @@ import Dashboard from "../components/pages/Manager/Dashboard";
 import {
   LazyCreateStaff,
   LazyDeleteStaff,
+  LazyHighPriorityTickets,
+  LazyLowPriorityTickets,
   LazyMainBoard,
+  LazyMidPriorityTickets,
+  LazyOpenTickets,
+  LazyPendingTickets,
   LazyRaiseTicket,
   LazyReportDisplayed,
   LazyReports,
+  LazyResolvedTickets,
   LazyStaffTickets,
   LazyTicketHistory,
   LazyTickets,
@@ -27,11 +33,16 @@ const Routing = () => {
     <Suspense fallback={<h1>...loading</h1>}>
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/" element={<LazyLandingPage />} /> */}
+ 
           <Route path="/" element={<LazySignInPage />} />
-          {/* <ProtectedRoutes> */}
           <Route path="manager/" element={<LazyMainBoard />}>
-            <Route path="dashboard" element={<Dashboard/>} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="openTickets" element={<LazyOpenTickets />} />
+            <Route path="pendingTickets" element={<LazyPendingTickets />} />
+            <Route path="resolvedTickets" element={<LazyResolvedTickets />} />
+            <Route path="highPriorityTickets" element={<LazyHighPriorityTickets />} />
+            <Route path="midPriorityTickets" element={<LazyMidPriorityTickets />} />
+            <Route path="lowPriorityTickets" element={<LazyLowPriorityTickets />} />
             <Route path="report" element={<LazyReportDisplayed />} />
             <Route path="ticket" element={<LazyTickets />} />
             <Route path="ticketHistory/:id" element={<LazyTicketHistory />} />
@@ -41,7 +52,7 @@ const Routing = () => {
             <Route path="deleteStaff" element={<LazyDeleteStaff />} />
             <Route path="updateStaff" element={<LazyUpdateStaff />} />
           </Route>
-          {/* </ProtectedRoutes> */}
+
           <Route path="staff/" element={<LazyMainBoard />}>
             <Route path="dashboard" element={<StaffDashboard />} />
             <Route path="ticket" element={<LazyStaffTickets />} />
@@ -49,10 +60,10 @@ const Routing = () => {
             <Route path="escalateTicket/:id" element={<EscalateTicket />} />
             <Route path="raiseticket" element={<LazyRaiseTicket />} />
             <Route path="report" element={<LazyReports />} />
-            {/* <Route path="createStaff" element={<LazyCreateStaff />} />
+          </Route>
+          {/* <Route path="createStaff" element={<LazyCreateStaff />} />
             <Route path="deleteStaff" element={<LazyDeleteStaff />} />
             <Route path="updateStaff" element={<LazyUpdateStaff />} /> */}
-          </Route>
           {/* <Route path="staff" element={<MainBoard />}>
             <Route path="dashboard" element={<ManagerDashBoard />} />
             <Route path="ticket" element={<Tickets />} />

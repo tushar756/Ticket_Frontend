@@ -62,10 +62,10 @@ const ReportDisplay = () => {
     getAllReports();
   }, []);
 
- 
- 
-
-//   const user = JSON.parse(localStorage.getItem("user"));
+  if (data.length==0) {
+    // return <h1 style={{minHeight:"70vh",}}>NO TICKET AVAILABLE</h1>
+    return <span className="loader"></span>
+   }
   
 
   

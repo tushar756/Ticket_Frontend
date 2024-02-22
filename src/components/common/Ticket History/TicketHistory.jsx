@@ -229,7 +229,7 @@ const TicketHistory = () => {
       <div className="escalte-btn">
         <h2>Do you want to Escalate Ticket?</h2>
         <Link to={`/${user.role}/escalateTicket/${id}`}>
-          <button className="escalate-btn">Eslate</button>
+          <button className="escalate-btn">Escalate</button>
         </Link>
       </div>
     </div>
