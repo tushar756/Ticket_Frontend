@@ -58,6 +58,7 @@ const ResolvedTickets = () => {
   ];
 
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const color = {
     High: "rgb(250 177 164 / 66%)",
     Mid: "#D3E5EF",
@@ -78,6 +79,7 @@ const ResolvedTickets = () => {
       const response = await API.get("/ticket/totalResolvedTickets");
     
       setData(response.data.data);
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
       setData([]);  
@@ -90,7 +92,9 @@ const ResolvedTickets = () => {
   }, []);
   
 
-
+  if (loading) {
+    return <span className="loader"></span>;
+  }
  
   if (data.length==0) {
     // return <h1 style={{minHeight:"70vh",}}>NO TICKET AVAILABLE</h1>
@@ -154,7 +158,7 @@ const ResolvedTickets = () => {
 
    return (
     data.length == 0 ? (
-      <h1>No data Availabel</h1>
+      <h1>No data Availabe</h1>
     ) : (
       <div style={{ width: "100%", overflowX: "auto" }}>
         <DataTable columns={ogData} data={data} row={row} />

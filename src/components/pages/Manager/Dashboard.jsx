@@ -35,6 +35,7 @@ const Dashboard = () => {
   useEffect(() => {
     getAllTickets();
   }, []);
+  
   if (loading) {
     // return <h1 style={{minHeight:"70vh",}}>NO TICKET AVAILABLE</h1>
     return <span className="loader"></span>;

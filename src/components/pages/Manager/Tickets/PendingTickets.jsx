@@ -54,6 +54,7 @@ const PendingTickets = () => {
   ];
 
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const color = {
     High: "rgb(250 177 164 / 66%)",
     Mid: "#D3E5EF",
@@ -74,6 +75,7 @@ const PendingTickets = () => {
       const response = await API.get("/ticket/totalPendingTickets");
     
       setData(response.data.data);
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
       setData([]);  
@@ -85,7 +87,9 @@ const PendingTickets = () => {
     getAllTickets();
   }, []);
   
-
+  if (loading) {
+    return <span className="loader"></span>;
+  }
 
  
   if (data.length==0) {
@@ -150,7 +154,7 @@ const PendingTickets = () => {
 
    return (
     data.length == 0 ? (
-      <h1>No data Availabel</h1>
+      <h1>No data Availabe</h1>
     ) : (
       <div style={{ width: "100%", overflowX: "auto" }}>
         <DataTable columns={ogData} data={data} row={row} />
