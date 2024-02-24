@@ -65,8 +65,9 @@ const ogData = [
 const TicketHistory = () => {
   const [staffData, setStaffData] = useState([]);
   const { id } = useParams();
+  const form = useForm();
   const [data, setData] = useState([]);
-
+  const [loading,setLoading]=useState(true)
   const getAllTickets = async () => {
     const response = await api.get(`ticket/ticketHistory/${id}`);
     if (Array.isArray(response.data.data.transition)) {
@@ -84,14 +85,20 @@ const TicketHistory = () => {
   const getAllStaff = async () => {
     const response = await API.get("/manager/getAllStaff");
     setStaffData(response.data.data);
+    setLoading(false)
   };
 
   useEffect(() => {
     getAllStaff();
   }, []);
 
+
+  if (loading) {
+    return <span className="loader"></span>
+   }
+  
   const user = JSON.parse(localStorage.getItem("user"));
-  const form = useForm();
+
   const { register, control, handleSubmit, reset } = form;
 
   const formSubmit = async (formData) => {
@@ -177,7 +184,7 @@ const TicketHistory = () => {
       Ticket_No: item.from.ticketId,
       Reported_Date: item.from.createdAt,
       Summary: item.from.description,
-      Last_Comments: item.from.email,
+      Last_Comments:`${item.from.firstName} ${item.from.lastName} `,
       Priority: (
         <p
           style={{
@@ -222,7 +229,7 @@ const TicketHistory = () => {
   
     };
   });
-
+ 
   return data.length === 0 ? (
     <div className="escate-history">
       <h1>No data found</h1>

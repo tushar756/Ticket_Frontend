@@ -43,7 +43,7 @@ const Sidebar = () => {
                   setTicketToggler(!ticketToggler);
                 }}
               >
-                <IoPeopleSharp size={21} />
+                   <FaTicketAlt size={21} />
                 <span className="menu-title">Ticket</span>
 
                 {toggler ? (
