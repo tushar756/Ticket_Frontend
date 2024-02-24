@@ -60,7 +60,7 @@ const Sidebar = () => {
             </Link>
             <div>
               <ul className={ticketToggler ? "sub-menu-open" : "sub-menu-closed"}>
-                <NavLink to="createStaff" className="menu">
+                <NavLink to="raiseTicketHistory" className="menu">
                   <li>
                     <div className="sub-menu-title">Raised Ticket History</div>
                   </li>

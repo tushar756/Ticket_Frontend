@@ -21,6 +21,7 @@ import {
   LazyPendingStaffTickets,
   LazyPendingTickets,
   LazyRaiseTicket,
+  LazyRaiseTicketHistory,
   LazyReportDisplayed,
   LazyReports,
   LazyResolvedStaffTickets,
@@ -40,8 +41,11 @@ const Routing = () => {
       <BrowserRouter>
         <Routes>
  
+            {/* ----------------------------Singin Routes-------------------------- */}
           <Route path="/" element={<LazySignInPage />} />
+            {/* ----------------------------MainBoard Routes-------------------------- */}
           <Route path="manager/" element={<LazyMainBoard />}>
+            {/* ----------------------------Dashboard Routes-------------------------- */}
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="openTickets" element={<LazyOpenTickets />} />
             <Route path="pendingTickets" element={<LazyPendingTickets />} />
@@ -49,17 +53,27 @@ const Routing = () => {
             <Route path="highPriorityTickets" element={<LazyHighPriorityTickets />} />
             <Route path="midPriorityTickets" element={<LazyMidPriorityTickets />} />
             <Route path="lowPriorityTickets" element={<LazyLowPriorityTickets />} />
-            <Route path="report" element={<LazyReportDisplayed />} />
+
+            {/* ----------------------------Ticket Routes------------------------- */}
             <Route path="tickets" element={<LazyTickets />} />
             <Route path="ticketHistory/:id" element={<LazyTicketHistory />} />
             <Route path="escalateTicket/:id" element={<EscalateTicket />} />
             <Route path="raiseticket" element={<LazyRaiseTicket />} />
+            <Route path="raiseTicketHistory" element={<LazyRaiseTicketHistory />} />
+
+            {/* ----------------------------Report Routes------------------------- */}
+            <Route path="report" element={<LazyReportDisplayed />} />
+
+            {/* ----------------------------Staff Crud Routes------------------------- */}
             <Route path="createStaff" element={<LazyCreateStaff />} />
             <Route path="deleteStaff" element={<LazyDeleteStaff />} />
             <Route path="updateStaff" element={<LazyUpdateStaff />} />
           </Route>
 
+            {/* ==============================================================================================*/}
+            {/* ----------------------------MainBoard Routes-------------------------- */}
           <Route path="staff/" element={<LazyMainBoard />}>
+            {/* ----------------------------Dashboard Routes-------------------------- */}
             <Route path="dashboard" element={<StaffDashboard />} />
             <Route path="openStaffTickets" element={<LazyOpenStaffTickets />} />
             <Route path="pendingStaffTickets" element={<LazyPendingStaffTickets />} />
@@ -67,20 +81,15 @@ const Routing = () => {
             <Route path="highPriorityStaffTickets" element={<LazyHighPriorityStaffTickets />} />
             <Route path="midPriorityStaffTickets" element={<LazyMidPriorityStaffTickets />} />
             <Route path="lowPriorityStaffTickets" element={<LazyLowPriorityStaffTickets />} />
+            {/* ----------------------------Ticket Routes------------------------- */}
             <Route path="ticket" element={<LazyStaffTickets />} />
             <Route path="ticketHistory/:id" element={<LazyTicketHistory />} />
             <Route path="escalateTicket/:id" element={<EscalateTicket />} />
             <Route path="raiseticket" element={<LazyRaiseTicket />} />
+            {/* ----------------------------Report Routes------------------------- */}
             <Route path="report" element={<LazyReports />} />
           </Route>
-          {/* <Route path="createStaff" element={<LazyCreateStaff />} />
-            <Route path="deleteStaff" element={<LazyDeleteStaff />} />
-            <Route path="updateStaff" element={<LazyUpdateStaff />} /> */}
-          {/* <Route path="staff" element={<MainBoard />}>
-            <Route path="dashboard" element={<ManagerDashBoard />} />
-            <Route path="ticket" element={<Tickets />} />
-            <Route path="raiseticket" element={<LazyRaiseTicket />} />
-          </Route> */}
+ 
 
           <Route path="*" element={<h1>page not found</h1>} />
         </Routes>

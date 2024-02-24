@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import DataTable from "../../common/Tables/DataTable";
+ 
 import { Link } from "react-router-dom";
-import "./Ticket.scss";
+// import "./Ticket.scss";
 // import axios from "axios";
 // import api from "../../../utils/Api/contact";
-import API from '../../../utils/Api/api'
+
 import { GoDotFill } from "react-icons/go";
+import DataTable from "../Tables/DataTable";
+import API from "../../../utils/Api/api";
 
 const Tickets = () => {
   const ogData = [
@@ -70,8 +72,8 @@ const Tickets = () => {
   };
   const getAllTickets = async () => {
     try {
-      const response = await API.get("/ticket/all");
-
+      const response = await API.get("/staff/raisedTicketHistory");
+      console.log(response.data)
       setData(response.data.data);
       setLoading(false)
     } catch (error) {
