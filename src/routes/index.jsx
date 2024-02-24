@@ -9,15 +9,21 @@ import Dashboard from "../components/pages/Manager/Dashboard";
 import {
   LazyCreateStaff,
   LazyDeleteStaff,
+  LazyHighPriorityStaffTickets,
   LazyHighPriorityTickets,
+  LazyLowPriorityStaffTickets,
   LazyLowPriorityTickets,
   LazyMainBoard,
+  LazyMidPriorityStaffTickets,
   LazyMidPriorityTickets,
+  LazyOpenStaffTickets,
   LazyOpenTickets,
+  LazyPendingStaffTickets,
   LazyPendingTickets,
   LazyRaiseTicket,
   LazyReportDisplayed,
   LazyReports,
+  LazyResolvedStaffTickets,
   LazyResolvedTickets,
   LazyStaffTickets,
   LazyTicketHistory,
@@ -44,7 +50,7 @@ const Routing = () => {
             <Route path="midPriorityTickets" element={<LazyMidPriorityTickets />} />
             <Route path="lowPriorityTickets" element={<LazyLowPriorityTickets />} />
             <Route path="report" element={<LazyReportDisplayed />} />
-            <Route path="ticket" element={<LazyTickets />} />
+            <Route path="tickets" element={<LazyTickets />} />
             <Route path="ticketHistory/:id" element={<LazyTicketHistory />} />
             <Route path="escalateTicket/:id" element={<EscalateTicket />} />
             <Route path="raiseticket" element={<LazyRaiseTicket />} />
@@ -55,6 +61,12 @@ const Routing = () => {
 
           <Route path="staff/" element={<LazyMainBoard />}>
             <Route path="dashboard" element={<StaffDashboard />} />
+            <Route path="openStaffTickets" element={<LazyOpenStaffTickets />} />
+            <Route path="pendingStaffTickets" element={<LazyPendingStaffTickets />} />
+            <Route path="resolvedStaffTickets" element={<LazyResolvedStaffTickets />} />
+            <Route path="highPriorityStaffTickets" element={<LazyHighPriorityStaffTickets />} />
+            <Route path="midPriorityStaffTickets" element={<LazyMidPriorityStaffTickets />} />
+            <Route path="lowPriorityStaffTickets" element={<LazyLowPriorityStaffTickets />} />
             <Route path="ticket" element={<LazyStaffTickets />} />
             <Route path="ticketHistory/:id" element={<LazyTicketHistory />} />
             <Route path="escalateTicket/:id" element={<EscalateTicket />} />
