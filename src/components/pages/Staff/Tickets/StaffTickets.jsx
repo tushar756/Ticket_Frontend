@@ -92,9 +92,9 @@ const StaffTickets = () => {
   }, []);
   
 
-  if (data.length == 0) {
-    return <h1 style={{ minHeight: "70vh" }}>NO TICKET AVAILABLE</h1>;
-  }
+  if (data.length==0) {
+    return <span className="loader"></span>
+   }
 
   const row = data.map((item, index) => {
     return {
