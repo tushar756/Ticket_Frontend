@@ -14,9 +14,17 @@ export const LazyStaffTickets = lazy(()=>import("../components/pages/Staff/Ticke
 export const LazyReports = lazy(()=>import("../components/common/Reports/Report"))
 export const LazyReportDisplayed = lazy(()=>import("../components/common/Reports/ReportDisplay"))
 export const LazyMainBoard = lazy(()=>import("../components/common/MainBoard/MainBoard"))
+// ----------------------Manager Dashboard--------------------------------
 export const LazyOpenTickets = lazy(()=>import("../components/pages/Manager/Tickets/OpenTickets"))
 export const LazyPendingTickets = lazy(()=>import("../components/pages/Manager/Tickets/PendingTickets"))
 export const LazyResolvedTickets = lazy(()=>import("../components/pages/Manager/Tickets/ResolvedTickets"))
 export const LazyLowPriorityTickets = lazy(()=>import("../components/pages/Manager/Tickets/LowPriorityTickets"))
 export const LazyMidPriorityTickets = lazy(()=>import("../components/pages/Manager/Tickets/MidPriorityTickets"))
 export const LazyHighPriorityTickets = lazy(()=>import("../components/pages/Manager/Tickets/HighPriorityTickets"))
+// ----------------------Staff Dashboard--------------------------------
+export const LazyOpenStaffTickets = lazy(()=>import("../components/pages/Staff/Dashboard/Tickets/OpenStaffTickets"))
+export const LazyPendingStaffTickets = lazy(()=>import("../components/pages/Staff/Dashboard/Tickets/PendingStaffTickets"))
+export const LazyResolvedStaffTickets = lazy(()=>import("../components/pages/Staff/Dashboard/Tickets/ResolvedStaffTickets"))
+export const LazyLowPriorityStaffTickets = lazy(()=>import("../components/pages/Staff/Dashboard/Tickets/LowPriorityStaffTickets"))
+export const LazyMidPriorityStaffTickets = lazy(()=>import("../components/pages/Staff/Dashboard/Tickets/MidPriorityStaffTickets"))
+export const LazyHighPriorityStaffTickets = lazy(()=>import("../components/pages/Staff/Dashboard/Tickets/HighPriorityStaffTickets"))
