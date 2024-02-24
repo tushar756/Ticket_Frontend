@@ -1,7 +1,7 @@
 table {
   width: 100%;
   border-collapse: collapse;
-
+   
   th {
     background-color: #00b7e5;
     color: white;
@@ -13,6 +13,9 @@ table {
     padding: 10px;
     text-align: center;
   }
+}
+table, th, td {
+  border: 1px solid rgba(20, 17, 17, 0.119);
 }
 tr:hover {
   background-color: rgb(213, 213, 213);
