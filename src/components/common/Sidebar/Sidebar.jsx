@@ -1,4 +1,4 @@
-import   { useState } from "react";
+import { useState } from "react";
 import "./sidebar.scss";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { FaTicketAlt } from "react-icons/fa";
@@ -10,8 +10,10 @@ import StaffSidebar from "../../pages/Staff/Sidebar/StaffSidebar";
 const Sidebar = () => {
   const [toggler, setToggler] = useState(false);
   const [ticketToggler, setTicketToggler] = useState(false);
-  const { role } = JSON.parse(localStorage.getItem('user'));
-  return (role === "staff"? <StaffSidebar/> :
+  const { role } = JSON.parse(localStorage.getItem("user"));
+  return role === "staff" ? (
+    <StaffSidebar />
+  ) : (
     <div className="sidebar">
       <ul className="menu-item">
         <NavLink to={"dashboard"} className="menu">
@@ -23,17 +25,15 @@ const Sidebar = () => {
             {/* <h3>Dashboard</h3> */}
           </li>
         </NavLink>
-        <NavLink to={"tickets"} className="menu">
+        {/* <NavLink to={"tickets"} className="menu">
           <li>
             <div>
               <FaTicketAlt size={21} />
             </div>
             <div className="menu-title">Tickets</div>
           </li>
-        </NavLink>
-        <li
-          style={{ display: "flex", flexDirection: "row" }}
-        >
+        </NavLink> */}
+        <li style={{ display: "flex", flexDirection: "row" }}>
           {" "}
           <div>
             <Link className=" menu-space">
@@ -43,7 +43,7 @@ const Sidebar = () => {
                   setTicketToggler(!ticketToggler);
                 }}
               >
-                   <FaTicketAlt size={21} />
+                <FaTicketAlt size={21} />
                 <span className="menu-title">Ticket</span>
 
                 {toggler ? (
@@ -59,7 +59,15 @@ const Sidebar = () => {
               </div>
             </Link>
             <div>
-              <ul className={ticketToggler ? "sub-menu-open" : "sub-menu-closed"}>
+              <ul
+                className={ticketToggler ? "sub-menu-open" : "sub-menu-closed"}
+              >
+                <NavLink to={"tickets"} className="menu">
+                  <li>
+                  
+                    <div className="sub-menu-title">Tickets</div>
+                  </li>
+                </NavLink>
                 <NavLink to="raiseTicketHistory" className="menu">
                   <li>
                     <div className="sub-menu-title">Raised Ticket History</div>

@@ -68,9 +68,23 @@ const Tickets = () => {
     Mid: "rgb(14 162 255)",
     Low: "green",
   };
+  const filterData = (data)=>{
+ 
+    const lastTransitions = data.map(item => {
+      const transitions = item.transition;
+      const lastTransition = transitions[transitions.length - 1];
+      return lastTransition;
+    });
+    return lastTransitions;
+  }
   const getAllTickets = async () => {
     try {
       const response = await API.get("/ticket/all");
+      const mainData = response.data.data
+      
+
+        const filteredData = filterData(mainData)  
+        console.log(filteredData)
 
       setData(response.data.data);
       setLoading(false)
