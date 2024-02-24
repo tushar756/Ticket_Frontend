@@ -9,6 +9,8 @@ import Dashboard from "../components/pages/Manager/Dashboard";
 import {
   LazyCreateStaff,
   LazyDeleteStaff,
+  LazyEbenezerPharmacyTickets,
+  LazyHarmonyrPharmacyTickets,
   LazyHighPriorityStaffTickets,
   LazyHighPriorityTickets,
   LazyLowPriorityStaffTickets,
@@ -60,6 +62,8 @@ const Routing = () => {
             <Route path="escalateTicket/:id" element={<EscalateTicket />} />
             <Route path="raiseticket" element={<LazyRaiseTicket />} />
             <Route path="raiseTicketHistory" element={<LazyRaiseTicketHistory />} />
+            <Route path="ebenezerPharmacyTickts" element={<LazyEbenezerPharmacyTickets />} />
+            <Route path="harmonyPharmacyTickts" element={<LazyHarmonyrPharmacyTickets />} />
 
             {/* ----------------------------Report Routes------------------------- */}
             <Route path="report" element={<LazyReportDisplayed />} />

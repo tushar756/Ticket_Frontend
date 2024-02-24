@@ -73,12 +73,12 @@ const Sidebar = () => {
                     <div className="sub-menu-title">Raised Ticket History</div>
                   </li>
                 </NavLink>
-                <NavLink to="updateStaff" className="menu">
+                <NavLink to="ebenezerPharmacyTickts" className="menu">
                   <li>
                     <div className="sub-menu-title">Ebenezer Pharmacy</div>
                   </li>
                 </NavLink>
-                <NavLink to="deleteStaff" className="menu">
+                <NavLink to="harmonyPharmacyTickts" className="menu">
                   <li>
                     <div className="sub-menu-title">Harmony Pharmacy</div>
                   </li>

@@ -15,6 +15,8 @@ export const LazyStaffTickets = lazy(()=>import("../components/pages/Staff/Ticke
 export const LazyTickets = lazy(()=>import("../components/pages/Ticket/Tickets"));
 export const LazyRaiseTicket = lazy(()=>import("../components/pages/Ticket/RaiseTicket"))
 export const LazyRaiseTicketHistory = lazy(()=>import("../components/common/Raised Ticket History/RaisedTicketHistory"))
+export const LazyEbenezerPharmacyTickets = lazy(()=>import("../components/pages/Manager/Department Tickets/EbenerzerPharmacyTicket"))
+export const LazyHarmonyrPharmacyTickets = lazy(()=>import("../components/pages/Manager/Department Tickets/HarmonyPharmacy"))
 // --------------------------Reports --------------------------------
 export const LazyReports = lazy(()=>import("../components/common/Reports/Report"))
 export const LazyReportDisplayed = lazy(()=>import("../components/common/Reports/ReportDisplay"))

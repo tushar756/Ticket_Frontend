@@ -18,6 +18,10 @@ const Tickets = () => {
       accessor: "Ticket_No",
     },
     {
+      Header: "Department",
+      accessor: "department",
+    },
+    {
       Header: "Issue",
       accessor: "Issue",
       width: "8%",
@@ -82,7 +86,7 @@ const Tickets = () => {
       const response = await API.get("/ticket/all");
       const mainData = response.data.data
       
-
+        console.log(mainData)
         const filteredData = filterData(mainData)  
         console.log(filteredData)
 
@@ -110,6 +114,7 @@ const Tickets = () => {
       S_No: index + 1,
       Ticket_No: item.ticketId,
       Issue: item.title,
+      department:item.department,
       Reported_Date: item.createdAt,
       Summary: item.description,
       // Last_Comments: item.currentAssignedTo.firstName +" " + item.currentAssignedTo.lastName,

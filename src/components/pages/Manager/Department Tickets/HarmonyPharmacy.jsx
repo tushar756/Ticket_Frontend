@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
- 
 import { Link } from "react-router-dom";
 // import "./Ticket.scss";
 // import axios from "axios";
 // import api from "../../../utils/Api/contact";
-
+import DataTable from "../../../common/Tables/DataTable";
+import API from "../../../../utils/Api/api";
 import { GoDotFill } from "react-icons/go";
-import DataTable from "../Tables/DataTable";
-import API from "../../../utils/Api/api";
 
-const Tickets = () => {
+const HarmonyPharmacyTickets = () => {
   const ogData = [
     {
       Header: "S_No",
@@ -74,10 +72,24 @@ const Tickets = () => {
     Mid: "rgb(14 162 255)",
     Low: "green",
   };
+  const filterData = (data)=>{
+ 
+    const lastTransitions = data.map(item => {
+      const transitions = item.transition;
+      const lastTransition = transitions[transitions.length - 1];
+      return lastTransition;
+    });
+    return lastTransitions;
+  }
   const getAllTickets = async () => {
     try {
-      const response = await API.get("/staff/raisedTicketHistory");
-      console.log(response.data)
+      const response = await API.get("/ticket/getAllHarmonyTickets");
+      const mainData = response.data.data
+      
+        console.log(mainData)
+        const filteredData = filterData(mainData)  
+        console.log(filteredData)
+
       setData(response.data.data);
       setLoading(false)
     } catch (error) {
@@ -164,4 +176,4 @@ const Tickets = () => {
    );
 };
 
-export default Tickets;
+export default HarmonyPharmacyTickets;

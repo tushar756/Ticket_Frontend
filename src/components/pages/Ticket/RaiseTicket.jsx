@@ -148,6 +148,22 @@ const RaiseTicket = () => {
             <option value="Pending">pending</option>
           </select>
         </div>
+        {/* --------------Department---------------------- */}
+        <div className=" diff-bg input-feilds">
+          <label htmlFor="department">Department</label>
+          <select
+            id="department"
+            {...register("department")}
+            style={{ width: "200px", height: "39px" }}
+          >
+            <option value="" disabled>
+              Select Option
+            </option>
+            <option value="Harmony Pharmacy">Harmony Pharmacy</option>
+            <option value="Ebenezer Pharmacy">Ebenezer Pharmacy</option>
+            <option value="Both">Both</option>
+          </select>
+        </div>
         {/* --------------assigneTo---------------------- */}
         <div className="input-feilds">
           <label htmlFor="assigneTo">Assigned to</label>
@@ -156,7 +172,7 @@ const RaiseTicket = () => {
             {...register("currentAssignedTo")}
             style={{ width: "200px", height: "39px" }}
           >
-            <option value="">Select Option</option>
+            <option value="" disabled>Select Option</option>
             {staffData.map((value, index) => {
               return (
                 <option
