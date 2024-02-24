@@ -1,16 +1,11 @@
 
-
 import { useEffect, useState } from "react";
-import DataTable from "../../../common/Tables/DataTable";
-// import DataTable from "../../../";
+import API from '../../../../../utils/Api/api'
+import DataTable from "../../../../common/Tables/DataTable";
 import { Link } from "react-router-dom";
-// import "./Ticket.scss";
-// import axios from "axios";
-// import api from "../../../utils/Api/contact";
-import API from '../../../../utils/Api/api'
 import { GoDotFill } from "react-icons/go";
 
-const OpenTickets = () => {
+const PendingStaffTickets = () => {
   const ogData = [
     {
       Header: "S_No",
@@ -73,10 +68,12 @@ const OpenTickets = () => {
   };
   const getAllTickets = async () => {
     try {
-      const response = await API.get("/ticket/totalOpenTickets");
-   
-      setData(response.data.data);
-      setLoading(false);
+      const response = await API.get("/staff/staffPendingTickets");
+ 
+    setData(response.data.data);
+ 
+    setLoading(false);
+  
     } catch (error) {
       console.error("Error fetching data:", error);
       setData([]);  
@@ -91,12 +88,8 @@ const OpenTickets = () => {
   if (loading) {
     return <span className="loader"></span>;
   }
-
  
-  if (data.length==0) {
-    // return <h1 style={{minHeight:"70vh",}}>NO TICKET AVAILABLE</h1>
-    return <span className="loader"></span>
-   }
+ 
 
   const row = data.map((item, index)=>{return {
       S_No: index + 1,
@@ -152,7 +145,7 @@ const OpenTickets = () => {
       // History: item.Ticket_No
     };
   });
-
+  
    return (
     data.length == 0 ? (
       <h1>No data Availabe</h1>
@@ -164,4 +157,4 @@ const OpenTickets = () => {
    );
 };
 
-export default OpenTickets;
+export default PendingStaffTickets;

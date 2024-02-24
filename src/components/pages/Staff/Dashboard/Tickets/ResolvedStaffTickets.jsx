@@ -1,20 +1,18 @@
  
 
- 
 
 
 
 import { useEffect, useState } from "react";
-import DataTable from "../../../common/Tables/DataTable";
-// import DataTable from "../../../";
+import API from '../../../../../utils/Api/api'
+import DataTable from "../../../../common/Tables/DataTable";
 import { Link } from "react-router-dom";
 // import "./Ticket.scss";
 // import axios from "axios";
 // import api from "../../../utils/Api/contact";
-import API from '../../../../utils/Api/api'
 import { GoDotFill } from "react-icons/go";
 
-const MidPriorityTickets = () => {
+const ResolvedStaffTickets = () => {
   const ogData = [
     {
       Header: "S_No",
@@ -77,7 +75,7 @@ const MidPriorityTickets = () => {
   };
   const getAllTickets = async () => {
     try {
-      const response = await API.get("/ticket/totalMidPriorityTickets");
+      const response = await API.get("/staff/staffResolveTickets");
     
       setData(response.data.data);
       setLoading(false);
@@ -93,11 +91,11 @@ const MidPriorityTickets = () => {
   }, []);
   
 
-
- 
   if (loading) {
     return <span className="loader"></span>;
   }
+ 
+ 
 
   const row = data.map((item, index)=>{return {
       S_No: index + 1,
@@ -165,4 +163,5 @@ const MidPriorityTickets = () => {
    );
 };
 
-export default MidPriorityTickets;
+export default ResolvedStaffTickets;
+ 

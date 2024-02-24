@@ -70,7 +70,7 @@ const Tickets = () => {
   const getAllTickets = async () => {
     try {
       const response = await API.get("/ticket/all");
-    
+
       setData(response.data.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -100,8 +100,7 @@ const Tickets = () => {
       // Last_Comments: item.currentAssignedTo.firstName +" " + item.currentAssignedTo.lastName,
       Last_Comments:
       item.createdBy.firstName +
-      // item.createdBy.firstName +
-      " " +
+" " +
       item.createdBy.lastName,
       Priority: (
         <p

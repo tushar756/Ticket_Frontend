@@ -1,19 +1,14 @@
- 
-
-
 
 
 import { useEffect, useState } from "react";
-import DataTable from "../../../common/Tables/DataTable";
-// import DataTable from "../../../";
+
 import { Link } from "react-router-dom";
-// import "./Ticket.scss";
-// import axios from "axios";
-// import api from "../../../utils/Api/contact";
-import API from '../../../../utils/Api/api'
+ 
+import API from '../../../../../utils/Api/api'
+import DataTable from "../../../../common/Tables/DataTable";
 import { GoDotFill } from "react-icons/go";
 
-const ResolvedTickets = () => {
+const OpenStaffTickets = () => {
   const ogData = [
     {
       Header: "S_No",
@@ -76,8 +71,8 @@ const ResolvedTickets = () => {
   };
   const getAllTickets = async () => {
     try {
-      const response = await API.get("/ticket/totalResolvedTickets");
-    
+      const response = await API.get("/staff/staffOpenTickets");
+   
       setData(response.data.data);
       setLoading(false);
     } catch (error) {
@@ -91,10 +86,10 @@ const ResolvedTickets = () => {
     getAllTickets();
   }, []);
   
-
   if (loading) {
     return <span className="loader"></span>;
   }
+
  
   if (data.length==0) {
     // return <h1 style={{minHeight:"70vh",}}>NO TICKET AVAILABLE</h1>
@@ -167,5 +162,4 @@ const ResolvedTickets = () => {
    );
 };
 
-export default ResolvedTickets;
- 
+export default OpenStaffTickets;

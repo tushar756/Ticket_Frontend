@@ -9,6 +9,7 @@ import { NavLink, Link } from "react-router-dom";
 import StaffSidebar from "../../pages/Staff/Sidebar/StaffSidebar";
 const Sidebar = () => {
   const [toggler, setToggler] = useState(false);
+  const [ticketToggler, setTicketToggler] = useState(false);
   const { role } = JSON.parse(localStorage.getItem('user'));
   return (role === "staff"? <StaffSidebar/> :
     <div className="sidebar">
@@ -22,7 +23,7 @@ const Sidebar = () => {
             {/* <h3>Dashboard</h3> */}
           </li>
         </NavLink>
-        <NavLink to={"ticket"} className="menu">
+        <NavLink to={"tickets"} className="menu">
           <li>
             <div>
               <FaTicketAlt size={21} />
@@ -30,6 +31,54 @@ const Sidebar = () => {
             <div className="menu-title">Tickets</div>
           </li>
         </NavLink>
+        <li
+          style={{ display: "flex", flexDirection: "row" }}
+        >
+          {" "}
+          <div>
+            <Link className=" menu-space">
+              <div
+                className="menu icon-link"
+                onClick={() => {
+                  setTicketToggler(!ticketToggler);
+                }}
+              >
+                <IoPeopleSharp size={21} />
+                <span className="menu-title">Ticket</span>
+
+                {toggler ? (
+                  <IoIosArrowUp style={{ marginLeft: "110px" }} />
+                ) : (
+                  <IoIosArrowDown
+                    style={{ marginLeft: "110px" }}
+                    onClick={() => {
+                      setTicketToggler(!toggler);
+                    }}
+                  />
+                )}
+              </div>
+            </Link>
+            <div>
+              <ul className={ticketToggler ? "sub-menu-open" : "sub-menu-closed"}>
+                <NavLink to="createStaff" className="menu">
+                  <li>
+                    <div className="sub-menu-title">Raised Ticket History</div>
+                  </li>
+                </NavLink>
+                <NavLink to="updateStaff" className="menu">
+                  <li>
+                    <div className="sub-menu-title">Ebenezer Pharmacy</div>
+                  </li>
+                </NavLink>
+                <NavLink to="deleteStaff" className="menu">
+                  <li>
+                    <div className="sub-menu-title">Harmony Pharmacy</div>
+                  </li>
+                </NavLink>
+              </ul>
+            </div>
+          </div>
+        </li>
         <NavLink to={"raiseticket"} className="menu">
           <li>
             <div>

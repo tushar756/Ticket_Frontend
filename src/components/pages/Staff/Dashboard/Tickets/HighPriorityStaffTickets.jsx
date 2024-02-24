@@ -2,17 +2,17 @@
 
 
 
+
 import { useEffect, useState } from "react";
-import DataTable from "../../../common/Tables/DataTable";
-// import DataTable from "../../../";
+import API from '../../../../../utils/Api/api'
+import DataTable from "../../../../common/Tables/DataTable";
 import { Link } from "react-router-dom";
 // import "./Ticket.scss";
 // import axios from "axios";
 // import api from "../../../utils/Api/contact";
-import API from '../../../../utils/Api/api'
 import { GoDotFill } from "react-icons/go";
 
-const LowPriorityTickets = () => {
+const HighPriorityStaffTickets = () => {
   const ogData = [
     {
       Header: "S_No",
@@ -55,6 +55,7 @@ const LowPriorityTickets = () => {
       accessor: "History",
     },
   ];
+
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const color = {
@@ -74,8 +75,8 @@ const LowPriorityTickets = () => {
   };
   const getAllTickets = async () => {
     try {
-      const response = await API.get("/ticket/totalLowPriorityTickets");
-    
+      const response = await API.get("/staff/staffHighPriorityTickets");
+     
       setData(response.data.data);
       setLoading(false);
     } catch (error) {
@@ -88,14 +89,14 @@ const LowPriorityTickets = () => {
   useEffect(() => {
     getAllTickets();
   }, []);
-  
-
-
- 
   if (loading) {
     return <span className="loader"></span>;
   }
 
+
+
+ 
+ 
 
   const row = data.map((item, index)=>{return {
       S_No: index + 1,
@@ -163,4 +164,4 @@ const LowPriorityTickets = () => {
    );
 };
 
-export default LowPriorityTickets;
+export default HighPriorityStaffTickets;

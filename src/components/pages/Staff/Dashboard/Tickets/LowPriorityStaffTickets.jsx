@@ -1,15 +1,18 @@
+ 
+
+
 
 import { useEffect, useState } from "react";
-import DataTable from "../../../common/Tables/DataTable";
+import API from '../../../../../utils/Api/api'
+import DataTable from "../../../../common/Tables/DataTable";
 // import DataTable from "../../../";
 import { Link } from "react-router-dom";
 // import "./Ticket.scss";
 // import axios from "axios";
 // import api from "../../../utils/Api/contact";
-import API from '../../../../utils/Api/api'
 import { GoDotFill } from "react-icons/go";
 
-const PendingTickets = () => {
+const LowPriorityStaffTickets = () => {
   const ogData = [
     {
       Header: "S_No",
@@ -52,7 +55,6 @@ const PendingTickets = () => {
       accessor: "History",
     },
   ];
-
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const color = {
@@ -72,7 +74,7 @@ const PendingTickets = () => {
   };
   const getAllTickets = async () => {
     try {
-      const response = await API.get("/ticket/totalPendingTickets");
+      const response = await API.get("/staff/staffLowPriorityTickets");
     
       setData(response.data.data);
       setLoading(false);
@@ -87,15 +89,13 @@ const PendingTickets = () => {
     getAllTickets();
   }, []);
   
+
+
+ 
   if (loading) {
     return <span className="loader"></span>;
   }
 
- 
-  if (data.length==0) {
-    // return <h1 style={{minHeight:"70vh",}}>NO TICKET AVAILABLE</h1>
-    return <span className="loader"></span>
-   }
 
   const row = data.map((item, index)=>{return {
       S_No: index + 1,
@@ -163,4 +163,4 @@ const PendingTickets = () => {
    );
 };
 
-export default PendingTickets;
+export default LowPriorityStaffTickets;
