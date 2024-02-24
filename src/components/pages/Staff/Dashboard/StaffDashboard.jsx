@@ -47,7 +47,7 @@ const StaffDashboard = () => {
 
   return (
     <div className="dashboardMain">
-      <NavLink to={"/manager/openTickets"} className="menu">
+      <NavLink to={"/staff/openStaffTickets"} className="menu">
         <div className="frame-position">
           <img src={frame1} alt="" />
           <div className="content-width">
@@ -56,7 +56,7 @@ const StaffDashboard = () => {
           </div>
         </div>
       </NavLink>
-      <NavLink to={"/manager/pendingTickets"} className="menu">
+      <NavLink to={"/staff/pendingStaffTickets"} className="menu">
         <div className="frame-position">
           <img src={frame2} alt="" />
           <div className="content-width">
@@ -65,7 +65,7 @@ const StaffDashboard = () => {
           </div>
         </div>
       </NavLink>
-      <NavLink to={"/manager/resolvedTickets"} className="menu">
+      <NavLink to={"/staff/resolvedStaffTickets"} className="menu">
         <div className="frame-position">
           <img src={frame3} alt="" />
           <div className="content-width">
@@ -74,7 +74,7 @@ const StaffDashboard = () => {
           </div>
         </div>
       </NavLink>
-      <NavLink to={"/manager/highPriorityTickets"} className="menu">
+      <NavLink to={"/staff/highPriorityStaffTickets"} className="menu">
         <div className="frame-position">
           <img src={frame4} alt="" />
           <div className="content-width">
@@ -84,7 +84,7 @@ const StaffDashboard = () => {
           </div>
         </div>
       </NavLink>
-      <NavLink to={"/manager/midPriorityTickets"} className="menu">
+      <NavLink to={"/staff/midPriorityStaffTickets"} className="menu">
         <div className="frame-position">
           <img src={frame5} alt="" />
           <div className="content-width">
@@ -94,7 +94,7 @@ const StaffDashboard = () => {
           </div>
         </div>
       </NavLink>
-      <NavLink to={"/manager/lowPriorityTickets"} className="menu">
+      <NavLink to={"/staff/lowPriorityStaffTickets"} className="menu">
         <div className="frame-position">
           <img src={frame5} alt="" />
           <div className="content-width">
