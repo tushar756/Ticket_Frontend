@@ -34,3 +34,5 @@ export const LazyResolvedStaffTickets = lazy(()=>import("../components/pages/Sta
 export const LazyLowPriorityStaffTickets = lazy(()=>import("../components/pages/Staff/Dashboard/Tickets/LowPriorityStaffTickets"))
 export const LazyMidPriorityStaffTickets = lazy(()=>import("../components/pages/Staff/Dashboard/Tickets/MidPriorityStaffTickets"))
 export const LazyHighPriorityStaffTickets = lazy(()=>import("../components/pages/Staff/Dashboard/Tickets/HighPriorityStaffTickets"))
+export const LazyStaffEbenezerPharmacyTickets = lazy(()=>import("../components/pages/Staff/Department Tickets/StaffEbenerzerPharmacyTicket"))
+export const LazyStaffHarmonyrPharmacyTickets = lazy(()=>import("../components/pages/Staff/Department Tickets/StaffHarmonyPharmacy"))

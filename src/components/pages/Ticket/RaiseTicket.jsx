@@ -124,7 +124,7 @@ const RaiseTicket = () => {
             {...register("priority")}
             style={{ width: "200px", height: "39px" }}
           >
-            <option value="" disabled>
+            <option value="" disabled selected>
               Select Option
             </option>
             <option value="High">High</option>
@@ -140,7 +140,7 @@ const RaiseTicket = () => {
             {...register("Bug_Status")}
             style={{ width: "200px", height: "39px" }}
           >
-            <option value="" disabled>
+            <option value="" disabled selected>
               Select Option
             </option>
             <option value="Open">Open</option>
@@ -150,13 +150,13 @@ const RaiseTicket = () => {
         </div>
         {/* --------------Department---------------------- */}
         <div className=" diff-bg input-feilds">
-          <label htmlFor="department">Department</label>
+          <label htmlFor="department" selected>Department</label>
           <select
             id="department"
             {...register("department")}
             style={{ width: "200px", height: "39px" }}
           >
-            <option value="" disabled>
+            <option value="" disabled selected>
               Select Option
             </option>
             <option value="Harmony Pharmacy">Harmony Pharmacy</option>
@@ -172,7 +172,7 @@ const RaiseTicket = () => {
             {...register("currentAssignedTo")}
             style={{ width: "200px", height: "39px" }}
           >
-            <option value="" disabled>Select Option</option>
+            <option value="" disabled selected>Select Option</option>
             {staffData.map((value, index) => {
               return (
                 <option

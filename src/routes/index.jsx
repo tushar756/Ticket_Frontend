@@ -28,6 +28,8 @@ import {
   LazyReports,
   LazyResolvedStaffTickets,
   LazyResolvedTickets,
+  LazyStaffEbenezerPharmacyTickets,
+  LazyStaffHarmonyrPharmacyTickets,
   LazyStaffTickets,
   LazyTicketHistory,
   LazyTickets,
@@ -87,6 +89,9 @@ const Routing = () => {
             <Route path="lowPriorityStaffTickets" element={<LazyLowPriorityStaffTickets />} />
             {/* ----------------------------Ticket Routes------------------------- */}
             <Route path="ticket" element={<LazyStaffTickets />} />
+            <Route path="raiseTicketHistory" element={<LazyRaiseTicketHistory />} />
+            <Route path="ebenezerPharmacyTicket" element={<LazyStaffEbenezerPharmacyTickets />} />
+            <Route path="harmonyPharmacyTicket" element={<LazyStaffHarmonyrPharmacyTickets />} />
             <Route path="ticketHistory/:id" element={<LazyTicketHistory />} />
             <Route path="escalateTicket/:id" element={<EscalateTicket />} />
             <Route path="raiseticket" element={<LazyRaiseTicket />} />

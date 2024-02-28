@@ -18,6 +18,10 @@ const StaffTickets = () => {
       width: "100%",
     },
     {
+      Header: "Department",
+      accessor: "department",
+    },
+    {
       Header: "Issue",
       accessor: "Issue",
       width: "100%",
@@ -101,6 +105,7 @@ const StaffTickets = () => {
       S_No: index + 1,
       Ticket_No: item.ticketId,
       Issue: item.title,
+      department:item.department,
       Reported_Date: item.createdAt,
       Summary: item.description,
       Last_Comments:

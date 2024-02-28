@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import DataTable from "../../common/Tables/DataTable";
 import { Link } from "react-router-dom";
-import "./Ticket.scss";
+// import "./Ticket.scss";
 // import axios from "axios";
 // import api from "../../../utils/Api/contact";
-import API from '../../../utils/Api/api'
+import DataTable from "../../../common/Tables/DataTable";
+import API from "../../../../utils/Api/api";
 import { GoDotFill } from "react-icons/go";
 
-const Tickets = () => {
+const StaffHarmonyPharmacyTickets = () => {
   const ogData = [
     {
       Header: "S_No",
@@ -57,8 +57,6 @@ const Tickets = () => {
 
   const [data, setData] = useState([]);
   const [loading,setLoading]=useState(true)
-  const [search, setSearch] = useState('')
-  const [dateSearch, setdateSearch] = useState('')
   const color = {
     High: "rgb(250 177 164 / 66%)",
     Mid: "#D3E5EF",
@@ -85,12 +83,12 @@ const Tickets = () => {
   }
   const getAllTickets = async () => {
     try {
-      const response = await API.get("/ticket/all");
+      const response = await API.get("/staff/getAllHarmonyTickets");
       const mainData = response.data.data
       
-        // console.log(mainData)
+        console.log(mainData)
         const filteredData = filterData(mainData)  
-        // console.log(filteredData)
+        console.log(filteredData)
 
       setData(response.data.data);
       setLoading(false)
@@ -112,34 +110,10 @@ const Tickets = () => {
     return <span className="loader"></span>
    }
 
-  const row = data.filter((item)=>{
-    // const formattedDate = item.createdAt.toLocaleDateString('en-GB');
-    // console.log(item.createdAt)
-    const newDate = new Date(item.createdAt).toLocaleDateString('en-GB');
-    const existingDate = new Date(dateSearch).toLocaleDateString('en-GB');
-    // console.log(  newDate == existingDate)
-
-    // console.log(newDate)
-    // console.log(existingDate)
-    if (newDate === existingDate) {
-      console.log("object")
-      return item
-    }
-    else {
-      if( item.createdBy.firstName.toLowerCase().includes(search.toLowerCase()) ){
-        console.log("asd")
-        return item
-      }
-    }
-    // else{
-    //   return null
-    // }
-  
-  })
-  .map((item, index)=>{
-   
+  const row = data.map((item, index)=>{
     const summary = item.description.split(' ').slice(0, 20).join(' ');
 
+    // Limit summary to 50 characters using substring
     const limitedSummary = summary.substring(0, 50); 
     return {
       S_No: index + 1,
@@ -188,7 +162,7 @@ const Tickets = () => {
         </p>
       ),
         History: (
-          <Link to={`/manager/ticketHistory/${item.ticketId}`}>
+          <Link to={`/staff/ticketHistory/${item.ticketId}`}>
             <button className="ticket-btn">History</button>
           </Link>
         ),
@@ -201,19 +175,10 @@ const Tickets = () => {
       <h1>No data Availabel</h1>
     ) : (
       <div style={{ width: "100%", overflowX: "auto" }}>
-        <input type="text" onChange={(e)=>{
-          setSearch(e.target.value)
-          console.log(search)
-        }}/>
-        <input type="date" name="" id=""  onChange={(e)=>{
-          setdateSearch(e.target.value)
-          const newDate = new Date(e.target.value)
-          console.log(newDate)
-        }}/> 
         <DataTable columns={ogData} data={data} row={row} />
       </div>
     )
    );
 };
 
-export default Tickets;
+export default StaffHarmonyPharmacyTickets;

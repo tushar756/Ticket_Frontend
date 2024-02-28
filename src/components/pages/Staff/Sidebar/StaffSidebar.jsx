@@ -3,12 +3,13 @@ import "./StaffSidebar.scss";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { FaTicketAlt } from "react-icons/fa";
 // import { IoPeopleSharp } from "react-icons/io5";
-// import { IoIosArrowUp } from "react-icons/io";
-// import { IoIosArrowDown } from "react-icons/io";
-import { NavLink} from "react-router-dom";
+import { IoIosArrowUp } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
+import { NavLink, Link } from "react-router-dom";
+import { useState } from "react";
 const StaffSidebar = () => {
-  // const [toggler, setToggler] = useState(false);
-
+  
+  const [ticketToggler, setTicketToggler] = useState(false);
   return (
     <div className="sidebar">
       <ul className="menu-item">
@@ -21,14 +22,61 @@ const StaffSidebar = () => {
             {/* <h3>Dashboard</h3> */}
           </li>
         </NavLink>
-        <NavLink to={"ticket"} className="menu">
-          <li>
+      
+        <li style={{ display: "flex", flexDirection: "row" }}>
+          {" "}
+          <div>
+            <Link className=" menu-space">
+              <div
+                className="menu icon-link"
+                onClick={() => {
+                  setTicketToggler(!ticketToggler);
+                }}
+              >
+                <FaTicketAlt size={21} />
+                <span className="menu-title">Ticket</span>
+
+                {ticketToggler ? (
+                  <IoIosArrowUp style={{ marginLeft: "110px" }} />
+                ) : (
+                  <IoIosArrowDown
+                    style={{ marginLeft: "110px" }}
+                    onClick={() => {
+                      setTicketToggler(!ticketToggler);
+                    }}
+                  />
+                )}
+              </div>
+            </Link>
             <div>
-              <FaTicketAlt size={21} />
+              <ul
+                className={ticketToggler ? "sub-menu-open" : "sub-menu-closed"}
+              >
+                <NavLink to={"ticket"} className="menu">
+                  <li>
+                  
+                    <div className="sub-menu-title">Tickets</div>
+                  </li>
+                </NavLink>
+                <NavLink to="raiseTicketHistory" className="menu">
+                  <li>
+                    <div className="sub-menu-title">Raised Ticket History</div>
+                  </li>
+                </NavLink>
+                <NavLink to="ebenezerPharmacyTicket" className="menu">
+                  <li>
+                    <div className="sub-menu-title">Ebenezer Pharmacy</div>
+                  </li>
+                </NavLink>
+                <NavLink to="harmonyPharmacyTicket" className="menu">
+                  <li>
+                    <div className="sub-menu-title">Harmony Pharmacy</div>
+                  </li>
+                </NavLink>
+              </ul>
             </div>
-            <div className="menu-title">Tickets</div>
-          </li>
-        </NavLink>
+          </div>
+        </li>
         <NavLink to={"raiseticket"} className="menu">
           <li>
             <div>
