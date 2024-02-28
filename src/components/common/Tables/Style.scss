@@ -12,7 +12,10 @@ table {
     color: black;
     padding: 10px;
     text-align: center;
+    // text-wrap: wrap;
+    // word-wrap: break-word; 
   }
+  
 }
 table, th, td {
   border: 1px solid rgba(20, 17, 17, 0.119);

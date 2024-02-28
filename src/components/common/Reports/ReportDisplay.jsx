@@ -74,13 +74,16 @@ const ReportDisplay = () => {
  
   console.log("render");
   const row = data.map((item, index) => {
-    // console.log("File URL:", item.fileURL);
-    console.log(item)
-    console.log("as")
+
+
+    const summary = item.description.split(' ').slice(0, 20).join(' ');
+
+    const limitedSummary = summary.substring(0, 50);
     return {
       S_No: index + 1,
       Reported_Date: item.createdAt,
-      Summary: item.description,
+      // Summary: item.description,
+      Summary: limitedSummary,
       Name:item.createdBy,
     //   Last_Comments: item.from.email,
       File: item.fileURL ? (

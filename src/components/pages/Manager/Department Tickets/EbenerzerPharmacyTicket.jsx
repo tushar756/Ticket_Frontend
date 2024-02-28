@@ -112,13 +112,18 @@ const EbenezerPharmacyTickets= () => {
     return <span className="loader"></span>
    }
 
-  const row = data.map((item, index)=>{return {
+  const row = data.map((item, index)=>{
+    const summary = item.description.split(' ').slice(0, 20).join(' ');
+
+    // Limit summary to 50 characters using substring
+    const limitedSummary = summary.substring(0, 50);
+    return {
       S_No: index + 1,
       Ticket_No: item.ticketId,
       Issue: item.title,
       department:item.department,
       Reported_Date: item.createdAt,
-      Summary: item.description,
+      Summary: limitedSummary,
       // Last_Comments: item.currentAssignedTo.firstName +" " + item.currentAssignedTo.lastName,
       Last_Comments:
       item.createdBy.firstName +
