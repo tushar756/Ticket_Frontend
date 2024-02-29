@@ -58,7 +58,7 @@ const Tickets = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
-  
+
   const color = {
     High: "rgb(250 177 164 / 66%)",
     Mid: "#D3E5EF",
@@ -109,20 +109,17 @@ const Tickets = () => {
 
   const row = data
     .filter((item) => {
-      
       const newDate = new Date(item.createdAt).toLocaleDateString("en-GB");
       const existingDate = new Date(search).toLocaleDateString("en-GB");
- 
+
       if (
         item.createdBy.firstName.toLowerCase().includes(search.toLowerCase()) ||
-        newDate === existingDate || item.department == search
+        newDate === existingDate ||
+        item.department == search
       ) {
         return item;
-      }
- 
-      else {
+      } else {
         return null;
-       
       }
     })
     .map((item, index) => {
@@ -187,52 +184,53 @@ const Tickets = () => {
     <div style={{ width: "100%", overflowX: "auto" }}>
       <div className="feild">
         <div className="feild">
-
-        <label htmlFor="User">User</label>
-        <input  
-          type="text"
-          onChange={(e) => {
-            setSearch(e.target.value);
-            console.log(search);
-          }}
+          <label htmlFor="User">User</label>
+          <input
+            type="text"
+            onChange={(e) => {
+              setSearch(e.target.value);
+              console.log(search);
+            }}
           />
-          </div>
-          <div className="feild">
-
-            <label htmlFor="User">Date</label>
-      <input
-        type="date"
-        name=""
-        style={{width:"300px"}}
-        id=""
-        onChange={(e) => {
-          setSearch(e.target.value);
-          const newDate = new Date(e.target.value);
-          console.log(newDate);
-        }}
-        />
+        </div>
+        <div className="feild">
+          <label htmlFor="User">Date</label>
+          <input
+            type="date"
+            name=""
+            style={{ width: "300px" }}
+            id=""
+            onChange={(e) => {
+              setSearch(e.target.value);
+              const newDate = new Date(e.target.value);
+              console.log(newDate);
+            }}
+          />
         </div>
         <div className="feild">
           <label htmlFor="priority">department</label>
           <select
             id="priority"
-            onChange={(e) => setSearch(e.target.value)}     // {...register("priority")}
+            onChange={(e) => setSearch(e.target.value)} // {...register("priority")}
             style={{ width: "200px", height: "39px" }}
-            defaultValue="" 
+            defaultValue=""
           >
-            <option value="" disabled  >
+            <option value="" disabled>
               Select Option
             </option>
             <option value="">All Departments</option>
             <option value="Ebenezer Pharmacy">Ebenezer Pharmacy</option>
             <option value="Harmony Pharmacy">Harmony Pharmacy</option>
             <option value="Both">Both</option>
-
           </select>
         </div>
-        <div  className="feild">
-
-        <button className="btn-main" onClick={()=>{setSearch("")}}>
+        <div className="feild">
+          <button
+            className="btn-main"
+            onClick={() => {
+              setSearch("");
+            }}
+          >
             Reset
           </button>
         </div>

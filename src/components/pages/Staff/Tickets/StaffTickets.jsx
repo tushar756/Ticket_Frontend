@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import DataTable from "../../../common/Tables/DataTable";
 import { Link } from "react-router-dom";
-import "./Ticket.scss";
+import "../../Ticket/Ticket.scss";
 import API from "../../../../utils/Api/api";
 import { GoDotFill } from "react-icons/go";
 
@@ -76,6 +76,7 @@ const StaffTickets = () => {
     Low: "green",
   };
   const [data, setData] = useState([]);
+  const [search, setSearch] = useState("");
   const user = JSON.parse(localStorage.getItem("user"));
   const getAllTickets = async () => {
     try {
@@ -100,7 +101,23 @@ const StaffTickets = () => {
     return <span className="loader"></span>
    }
 
-  const row = data.map((item, index) => {
+  const row = data.filter((item) => {
+      
+    const newDate = new Date(item.createdAt).toLocaleDateString("en-GB");
+    const existingDate = new Date(search).toLocaleDateString("en-GB");
+
+    if (
+      item.createdBy.firstName.toLowerCase().includes(search.toLowerCase()) ||
+      newDate === existingDate || item.department == search
+    ) {
+      return item;
+    }
+
+    else {
+      return null;
+     
+    }
+  }).map((item, index) => {
     return {
       S_No: index + 1,
       Ticket_No: item.ticketId,
@@ -160,6 +177,59 @@ const StaffTickets = () => {
     <h1>No data found</h1>
   ) : (
     <div className="datatable" style={{ width: "100%", overflowX: "auto" }}>
+          <div className="feild">
+        <div className="feild">
+          <label htmlFor="User">User</label>
+          <input
+            type="text"
+            onChange={(e) => {
+              setSearch(e.target.value);
+              console.log(search);
+            }}
+          />
+        </div>
+        <div className="feild">
+          <label htmlFor="User">Date</label>
+          <input
+            type="date"
+            name=""
+            style={{ width: "300px" }}
+            id=""
+            onChange={(e) => {
+              setSearch(e.target.value);
+              const newDate = new Date(e.target.value);
+              console.log(newDate);
+            }}
+          />
+        </div>
+        <div className="feild">
+          <label htmlFor="priority">department</label>
+          <select
+            id="priority"
+            onChange={(e) => setSearch(e.target.value)} // {...register("priority")}
+            style={{ width: "200px", height: "39px" }}
+            defaultValue=""
+          >
+            <option value="" disabled>
+              Select Option
+            </option>
+            <option value="">All Departments</option>
+            <option value="Ebenezer Pharmacy">Ebenezer Pharmacy</option>
+            <option value="Harmony Pharmacy">Harmony Pharmacy</option>
+            <option value="Both">Both</option>
+          </select>
+        </div>
+        <div className="feild">
+          <button
+            className="btn-main"
+            onClick={() => {
+              setSearch("");
+            }}
+          >
+            Reset
+          </button>
+        </div>
+      </div>
       <DataTable columns={ogData} data={data} row={row} />
     </div>
   );
