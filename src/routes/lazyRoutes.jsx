@@ -20,6 +20,8 @@ export const LazyHarmonyrPharmacyTickets = lazy(()=>import("../components/pages/
 // --------------------------Reports --------------------------------
 export const LazyReports = lazy(()=>import("../components/common/Reports/Report"))
 export const LazyReportDisplayed = lazy(()=>import("../components/common/Reports/ReportDisplay"))
+export const LazyReportHistory = lazy(()=>import("../components/common/Reports/ReportHistory"))
+
 // --------------------------Manager Dashboard--------------------------------
 export const LazyOpenTickets = lazy(()=>import("../components/pages/Manager/Tickets/OpenTickets"))
 export const LazyPendingTickets = lazy(()=>import("../components/pages/Manager/Tickets/PendingTickets"))

@@ -3,58 +3,76 @@ import DataTable from "../Tables/DataTable";
 import { useState, useEffect } from "react";
 import API from "../../../utils/Api/api";
 import PropTypes from 'prop-types';
+import { Link, } from "react-router-dom";
 
  
-const ogData = [
-  {
-    Header: "S_No",
-    accessor: "S_No",
- 
-  },
- 
-  {
-    // Header: "Date&Time",
-    Header: "Reported_Date",
-    accessor: "Reported_Date",
-     
-  },
-  {
-    Header: "Name",
-    accessor: "Name",
-     
-  },
-  {
-    Header: "Summary",
-    accessor: "Summary",
-   
-  },
- 
- 
-  {
-    Header: "File",
-    accessor: "fileURL",
-    Cell: ({ row }) => {
-    //   console.log(row.original.File.props.href); // Moved console.log here
-      return (
-        row.original.File.props.href ? ( 
-          <a href={row.original.File.props.href} download>
-            Download File
-          </a>
-        ) : (
-          <span>No file exists</span>
-        )
-      );
-    },
-  },
-  {
-    Header: "Actions",
-    accessor: "History",
-  },
-];
+
 
 const ReportDisplay = () => {
- 
- 
+  // const history = 
+// console.log(history)
+  const handleOpen = (rowData) => {
+    // Here you can pass the data and navigate to the new route
+    console.log("Open data for row:", rowData);
+    
+              
+    // history.push({
+    //   pathname: `/manager/reportHistory`,
+    //   state: { rowData: rowData }
+    // });
+  };
+  const ogData = [
+    {
+      Header: "S_No",
+      accessor: "S_No",
+   
+    },
+   
+    {
+      // Header: "Date&Time",
+      Header: "Reported_Date",
+      accessor: "Reported_Date",
+       
+    },
+    {
+      Header: "Name",
+      accessor: "Name",
+       
+    },
+    {
+      Header: "Summary",
+      accessor: "Summary",
+     
+    },
+   
+   
+    {
+      Header: "File",
+      accessor: "fileURL",
+      Cell: ({ row }) => {
+      //   console.log(row.original.File.props.href); // Moved console.log here
+        return (
+          row.original.File.props.href ? ( 
+            <a href={row.original.File.props.href} download>
+              Download File
+            </a>
+          ) : (
+            <span>No file exists</span>
+          )
+        );
+      },
+    },
+    {
+      Header: "Actions",
+      accessor: "History",
+      Cell: ({ row }) => (
+        <Link to={`/manager/reportHistory`}>
+        <button className="ticket-btn" onClick={() => handleOpen(row.original)}>Open</button>
+      </Link>
+      ),
+    },
+  ];
+  
   const [data, setData] = useState([]);
 
   const getAllReports = async () => {
@@ -73,7 +91,7 @@ const ReportDisplay = () => {
    }
   
 
-  
+
 
  
  
@@ -98,11 +116,11 @@ const ReportDisplay = () => {
       ) : (
         <span>No file </span>
       ),
-      History: (
-        // <Link to={`/manager/ticketHistory/${item.ticketId}`}>
-          <button className="ticket-btn">History</button>
-        // </Link>
-      ),
+      // History: (
+      //   <Link to={`/manager/reportHistory`}>
+      //   <button className="ticket-btn" onClick={() => handleOpen(row.original)}>Open</button>
+      // </Link>
+      // ),
   
     };
   });

@@ -25,6 +25,7 @@ import {
   LazyRaiseTicket,
   LazyRaiseTicketHistory,
   LazyReportDisplayed,
+  LazyReportHistory,
   LazyReports,
   LazyResolvedStaffTickets,
   LazyResolvedTickets,
@@ -69,6 +70,7 @@ const Routing = () => {
 
             {/* ----------------------------Report Routes------------------------- */}
             <Route path="report" element={<LazyReportDisplayed />} />
+            <Route path="reportHistory" element={<LazyReportHistory />} />
 
             {/* ----------------------------Staff Crud Routes------------------------- */}
             <Route path="createStaff" element={<LazyCreateStaff />} />

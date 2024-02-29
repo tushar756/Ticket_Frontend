@@ -13,6 +13,39 @@
     background-color: #3996E4;
     width: 100vw;
 }
+.feild{
+  // margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  padding: 7px;
+  font-size: 1rem;
+  width: 300px;
+  gap: 100px;
+}
+.btn-main{
+  display: block;
+ 
+  height: 40px;
+  border-radius: 10px;
+  margin: 10px auto;
+  padding: 0 50px;
+  color: white;
+  border: none;
+ 
+
+background: rgb(0,155,231);
+background: linear-gradient(90deg, rgba(0,155,231,1) 0%, rgba(3,103,182,1) 51%, rgba(0,155,231,1) 96%);
+}
+input{
+  width: 200px;
+  height: 39px;
+  border-radius: 10px;
+  border: 1px solid #DEE2E6;
+}
+label{
+  // margin-left: 100px;
+  width: 20%;
+}
 .loader {
     // background-color: #00B7E5;
     position: absolute;
