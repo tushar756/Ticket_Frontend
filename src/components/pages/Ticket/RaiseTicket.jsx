@@ -12,7 +12,7 @@ const RaiseTicket = () => {
   const getAllStaff = async () => {
     const response = await API.get("/manager/getAllStaff");
     setStaffData(response.data.data);
-    console.log(response.data.data)
+    
   };
   useEffect(() => {
     getAllStaff();
@@ -27,7 +27,7 @@ const RaiseTicket = () => {
       
  
       const { file, ...data } = formData;
-      console.log(data)
+      
       // const formDataToSend = new FormData();
  
     // Object.entries(data).forEach(([key, value]) => {
@@ -75,8 +75,8 @@ const RaiseTicket = () => {
         formReset();
       }
     } catch (error) {
-      // console.log(error)
-      toast.error(error.message, {
+      console.log(error)
+      toast.error(error.response.data.message, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -123,8 +123,9 @@ const RaiseTicket = () => {
             id="priority"
             {...register("priority")}
             style={{ width: "200px", height: "39px" }}
+            defaultValue="" 
           >
-            <option value="" disabled selected>
+            <option value="" disabled  >
               Select Option
             </option>
             <option value="High">High</option>
@@ -139,8 +140,9 @@ const RaiseTicket = () => {
             id="Bug_Status"
             {...register("Bug_Status")}
             style={{ width: "200px", height: "39px" }}
+            defaultValue="" 
           >
-            <option value="" disabled selected>
+            <option value="" disabled  >
               Select Option
             </option>
             <option value="Open">Open</option>
@@ -150,13 +152,14 @@ const RaiseTicket = () => {
         </div>
         {/* --------------Department---------------------- */}
         <div className=" diff-bg input-feilds">
-          <label htmlFor="department" selected>Department</label>
+          <label htmlFor="department"  >Department</label>
           <select
             id="department"
             {...register("department")}
             style={{ width: "200px", height: "39px" }}
+            defaultValue="" 
           >
-            <option value="" disabled selected>
+            <option value="" disabled  >
               Select Option
             </option>
             <option value="Harmony Pharmacy">Harmony Pharmacy</option>
@@ -171,8 +174,9 @@ const RaiseTicket = () => {
             id="assigneTo"
             {...register("currentAssignedTo")}
             style={{ width: "200px", height: "39px" }}
+            defaultValue="" 
           >
-            <option value="" disabled selected>Select Option</option>
+            <option value="" disabled  >Select Option</option>
             {staffData.map((value, index) => {
               return (
                 <option

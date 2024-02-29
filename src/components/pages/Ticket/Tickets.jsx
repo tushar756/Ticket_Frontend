@@ -58,7 +58,7 @@ const Tickets = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
-  const [dateSearch, setdateSearch] = useState("");
+  
   const color = {
     High: "rgb(250 177 164 / 66%)",
     Mid: "#D3E5EF",
@@ -109,14 +109,10 @@ const Tickets = () => {
 
   const row = data
     .filter((item) => {
-      // const formattedDate = item.createdAt.toLocaleDateString('en-GB');
-      // console.log(item.createdAt)
+      
       const newDate = new Date(item.createdAt).toLocaleDateString("en-GB");
       const existingDate = new Date(search).toLocaleDateString("en-GB");
-      // console.log(  newDate == existingDate)
-
-      // console.log(newDate)
-      // console.log(existingDate)
+ 
       if (
         item.createdBy.firstName.toLowerCase().includes(search.toLowerCase()) ||
         newDate === existingDate || item.department == search
@@ -222,8 +218,9 @@ const Tickets = () => {
             id="priority"
             onChange={(e) => setSearch(e.target.value)}     // {...register("priority")}
             style={{ width: "200px", height: "39px" }}
+            defaultValue="" 
           >
-            <option value="" disabled selected>
+            <option value="" disabled  >
               Select Option
             </option>
             <option value="">All Departments</option>

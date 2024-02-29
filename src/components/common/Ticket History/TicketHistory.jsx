@@ -47,7 +47,7 @@ const ogData = [
     Header: "File",
     accessor: "fileURL",
     Cell: ({ row }) => {
-      console.log(row.original.File.props.href); // Moved console.log here
+ 
       return (
         row.original.File.props.href ? ( 
           <a href={row.original.File.props.href} download>
@@ -72,7 +72,7 @@ const TicketHistory = () => {
     const response = await api.get(`ticket/ticketHistory/${id}`);
     if (Array.isArray(response.data.data.transition)) {
       setData(response.data.data.transition);
-      console.log(response.data.data.transition);
+      
     } else {
       console.error("Response data is not an array:", response.data);
     }
@@ -106,7 +106,7 @@ const TicketHistory = () => {
       const { file, ...data } = formData;
       // if (file && file.length > 0) {
       //   const selectedFile = file[0];
-      //   console.log("Selected File:", selectedFile); // Log the selected file
+      
       // } else {
       //   console.error('No file selected');
       // }
@@ -126,10 +126,7 @@ const TicketHistory = () => {
           },
         }
       );
-
-      console.log("API Response:", response);
-
-      console.log("API Response:", response);
+ 
       if (response.data.error === false) {
         toast.success("Ticket Assigned Successfully", {
           position: "top-right",
@@ -176,9 +173,9 @@ const TicketHistory = () => {
     Mid: "rgb(14 162 255)",
     Low: "green",
   };
-  console.log("render");
+  
   const row = data.map((item, index) => {
-    console.log("File URL:", item.fileURL);
+  
     return {
       S_No: index + 1,
       Ticket_No: item.from.ticketId,
