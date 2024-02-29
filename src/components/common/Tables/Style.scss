@@ -1,20 +1,22 @@
 table {
   width: 100%;
   border-collapse: collapse;
-   
+  // table-layout: auto;
   th {
     background-color: #00b7e5;
     color: white;
     padding: 10px;
+    // min-width:210px;
   }
   td {
-    width: 200px;
+    // width: 200px;
     color: black;
     padding: 10px;
     text-align: center;
     // text-wrap: wrap;
     // word-wrap: break-word; 
   }
+ 
   
 }
 table, th, td {

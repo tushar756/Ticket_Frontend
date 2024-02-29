@@ -9,22 +9,24 @@ const ogData = [
   {
     Header: "S_No",
     accessor: "S_No",
+ 
   },
  
   {
     // Header: "Date&Time",
     Header: "Reported_Date",
     accessor: "Reported_Date",
+     
   },
   {
     Header: "Name",
     accessor: "Name",
+     
   },
   {
     Header: "Summary",
     accessor: "Summary",
-    width: "200px",
-    textAlign: "start",
+   
   },
  
  
@@ -43,8 +45,11 @@ const ogData = [
         )
       );
     },
-  }
-  
+  },
+  {
+    Header: "Actions",
+    accessor: "History",
+  },
 ];
 
 const ReportDisplay = () => {
@@ -82,16 +87,21 @@ const ReportDisplay = () => {
     return {
       S_No: index + 1,
       Reported_Date: item.createdAt,
-      // Summary: item.description,
+ 
       Summary: limitedSummary,
       Name:item.createdBy,
-    //   Last_Comments: item.from.email,
+     
       File: item.fileURL ? (
         <a href={item.fileURL} target="_blank" rel="noreferrer">
           Download File
         </a>
       ) : (
         <span>No file </span>
+      ),
+      History: (
+        // <Link to={`/manager/ticketHistory/${item.ticketId}`}>
+          <button className="ticket-btn">History</button>
+        // </Link>
       ),
   
     };
@@ -103,7 +113,7 @@ console.log(row)
     
     </div>
   ) : (
-    <div className="esclate-main">
+    <div className="esclate-main" style={{width:"100%"}}>
       <DataTable columns={ogData} Data={data} row={row} />   
     </div>
   );

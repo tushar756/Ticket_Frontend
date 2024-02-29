@@ -83,7 +83,7 @@ const UpdateStaff = () => {
             onChange={handleStaffSelection}
             style={{ width: "200px", height: "39px" }}
           >
-            <option value="" disabled>Select Option</option>
+            <option value="" disabled selected>Select Option</option>
             {staffData.map((value, index) => {
               return (
                 <option
