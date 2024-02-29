@@ -3,23 +3,32 @@ import DataTable from "../Tables/DataTable";
 import { useState, useEffect } from "react";
 import API from "../../../utils/Api/api";
 import PropTypes from 'prop-types';
-import { Link, } from "react-router-dom";
-
- 
+import { Link, useNavigate, } from "react-router-dom";
+import ReportHistory from "./ReportHistory"; 
+import { IoIosArrowDown } from "react-icons/io";
+import '../../pages/Ticket/Ticket.scss'
 
 
 const ReportDisplay = () => {
-  // const history = 
-// console.log(history)
-  const handleOpen = (rowData) => {
-    // Here you can pass the data and navigate to the new route
-    console.log("Open data for row:", rowData);
+   
+  const [rowData, setRowData] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+  const handleOpen = (row) => {
+    setRowData(row)
+    setShowModal(true)
+    // const dataToPass = {
+     
+    //   File:rowData.File.props.children,
+    //   Name: rowData.Name,
+    //   Reported_Date: rowData.Reported_Date,
+    //   Summary:rowData.Summary
+    // };
+    // console.log(rowData)
+ 
     
-              
-    // history.push({
-    //   pathname: `/manager/reportHistory`,
-    //   state: { rowData: rowData }
-    // });
   };
   const ogData = [
     {
@@ -44,8 +53,6 @@ const ReportDisplay = () => {
       accessor: "Summary",
      
     },
-   
-   
     {
       Header: "File",
       accessor: "fileURL",
@@ -66,9 +73,9 @@ const ReportDisplay = () => {
       Header: "Actions",
       accessor: "History",
       Cell: ({ row }) => (
-        <Link to={`/manager/reportHistory`}>
-        <button className="ticket-btn" onClick={() => handleOpen(row.original)}>Open</button>
-      </Link>
+        
+        <button className="ticket-btn" onClick={() => handleOpen(row.original) }>Open</button>
+  
       ),
     },
   ];
@@ -90,12 +97,7 @@ const ReportDisplay = () => {
     return <span className="loader"></span>
    }
   
-
-
-
  
- 
-  console.log("render");
   const row = data.map((item, index) => {
 
 
@@ -123,8 +125,7 @@ const ReportDisplay = () => {
       // ),
   
     };
-  });
-console.log(row)
+  }); 
   return data.length === 0 ? (
     <div className="escate-history">
       <h1>No Reports</h1>
@@ -133,6 +134,13 @@ console.log(row)
   ) : (
     <div className="esclate-main" style={{width:"100%"}}>
       <DataTable columns={ogData} Data={data} row={row} />   
+      {showModal && (
+        <ReportHistory
+          rowData={[rowData]}
+          handleCloseModal={handleCloseModal}
+        />
+      )}
+      
     </div>
   );
 };

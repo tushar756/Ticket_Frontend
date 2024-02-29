@@ -14,7 +14,7 @@
     width: 100vw;
 }
 .feild{
-  // margin-bottom: 20px;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   padding: 7px;
@@ -24,11 +24,10 @@
 }
 .btn-main{
   display: block;
- 
+  width: 150px;
   height: 40px;
   border-radius: 10px;
   margin: 10px auto;
-  padding: 0 50px;
   color: white;
   border: none;
  

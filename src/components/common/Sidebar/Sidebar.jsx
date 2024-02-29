@@ -25,14 +25,7 @@ const Sidebar = () => {
             {/* <h3>Dashboard</h3> */}
           </li>
         </NavLink>
-        {/* <NavLink to={"tickets"} className="menu">
-          <li>
-            <div>
-              <FaTicketAlt size={21} />
-            </div>
-            <div className="menu-title">Tickets</div>
-          </li>
-        </NavLink> */}
+     
         <li style={{ display: "flex", flexDirection: "row" }}>
           {" "}
           <div>
@@ -46,16 +39,17 @@ const Sidebar = () => {
                 <FaTicketAlt size={21} />
                 <span className="menu-title">Ticket</span>
 
-                {toggler ? (
+                {ticketToggler ? (
                   <IoIosArrowUp style={{ marginLeft: "110px" }} />
                 ) : (
                   <IoIosArrowDown
                     style={{ marginLeft: "110px" }}
                     onClick={() => {
-                      setTicketToggler(!toggler);
+                      setTicketToggler(!ticketToggler);
                     }}
                   />
                 )}
+                
               </div>
             </Link>
             <div>
