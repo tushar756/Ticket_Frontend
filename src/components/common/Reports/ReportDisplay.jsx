@@ -81,19 +81,20 @@ const ReportDisplay = () => {
   ];
   
   const [data, setData] = useState([]);
+  const [loading,setLoading]=useState(true)
 
   const getAllReports = async () => {
     const response = await API.get('/staff/getAllReport');
     console.log(response.data.data)
     setData(response.data.data)
+    setLoading(false)
   };
 
   useEffect(() => {
     getAllReports();
   }, []);
 
-  if (data.length==0) {
-    // return <h1 style={{minHeight:"70vh",}}>NO TICKET AVAILABLE</h1>
+  if (loading) {
     return <span className="loader"></span>
    }
   
