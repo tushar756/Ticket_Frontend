@@ -78,7 +78,7 @@ const Tickets = () => {
     try {
       const response = await API.get("/staff/raisedTicketHistory");
       console.log(response.data)
-      setData(response.data.data);
+      setData(response.data.data.reverse());
       setLoading(false)
     } catch (error) {
       console.error("Error fetching data:", error);

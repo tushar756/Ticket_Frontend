@@ -90,7 +90,7 @@ const HarmonyPharmacyTickets = () => {
         const filteredData = filterData(mainData)  
         console.log(filteredData)
 
-      setData(response.data.data);
+      setData(response.data.data.reverse());
       setLoading(false)
     } catch (error) {
       console.error("Error fetching data:", error);
