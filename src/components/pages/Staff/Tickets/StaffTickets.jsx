@@ -77,6 +77,7 @@ const StaffTickets = () => {
   };
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
+  const [loading,setLoading]=useState(true)
   const user = JSON.parse(localStorage.getItem("user"));
   const getAllTickets = async () => {
     try {
@@ -85,6 +86,7 @@ const StaffTickets = () => {
       });
 
       setData(response.data.data);
+      setLoading(false)
     } catch (error) {
       console.error("Error fetching data:", error);
       setData([]);
@@ -97,7 +99,7 @@ const StaffTickets = () => {
   }, []);
   
 
-  if (data.length==0) {
+  if (loading) {
     return <span className="loader"></span>
    }
 
