@@ -110,7 +110,7 @@ const RaiseTicket = () => {
           <label htmlFor="description">Bug Description</label>
           <textarea
             {...register("description")}
-            style={{ width: "80%", fontSize: "1rem", padding: "5px" }}
+            style={{ width: "80%", fontSize: "1rem", padding: "5px" ,whiteSpace: "pre-wrap"}}
             id="description"
             cols="30"
             rows="5"

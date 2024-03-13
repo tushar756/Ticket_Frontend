@@ -56,7 +56,7 @@ const DataTable = (props) => {
           return (
             <tr {...row.getRowProps()} key= {index}>
               {row.cells.map((cell,index) => {
-                return <td {...cell.getCellProps()} key= {index}>{cell.render("Cell")} </td>;
+                return <td {...cell.getCellProps()} key= {index} style={{ whiteSpace: "pre-wrap" }}>{cell.render("Cell")} </td>;
               })}
             </tr>
           );
